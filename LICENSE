@@ -181,45 +181,63 @@ Additional License files can be found in the 'licenses' folder located in the sa
 - Software produced at the ASF which is available under Apache-2.0
 
 Apache-2.0
-* commons-codec:commons-codec:1.14
+* commons-codec:commons-codec:1.15
 * commons-collections:commons-collections:3.2.2
-* commons-io:commons-io:2.7
+* commons-io:commons-io:2.11.0
 * commons-logging:commons-logging:1.2
-* commons-net:commons-net:3.7
+* commons-net:commons-net:3.8.0
 * org.apache-extras.beanshell:bsh:2.0b6
 * org.apache.commons:commons-collections4:4.4
-* org.apache.commons:commons-dbcp2:2.8.0
-* org.apache.commons:commons-jexl3:3.1
+* org.apache.commons:commons-dbcp2:2.9.0
+* org.apache.commons:commons-jexl3:3.2.1
 * org.apache.commons:commons-jexl:2.1.1
-* org.apache.commons:commons-lang3:3.11
+* org.apache.commons:commons-lang3:3.12.0
 * org.apache.commons:commons-math3:3.6.1
-* org.apache.commons:commons-pool2:2.9.0
+* org.apache.commons:commons-pool2:2.11.1
 * org.apache.commons:commons-text:1.9
 * org.apache.geronimo.specs:geronimo-jms_1.1_spec:1.1.1
-* org.apache.httpcomponents:httpasyncclient:4.1.4
-* org.apache.httpcomponents:httpclient:4.5.12
-* org.apache.httpcomponents:httpcore-nio:4.4.13
-* org.apache.httpcomponents:httpcore:4.4.13
-* org.apache.httpcomponents:httpmime:4.5.12
-* org.apache.logging.log4j:log4j-1.2-api:2.13.3
-* org.apache.logging.log4j:log4j-api:2.13.3
-* org.apache.logging.log4j:log4j-core:2.13.3
-* org.apache.logging.log4j:log4j-slf4j-impl:2.13.3
-* org.apache.tika:tika-core:1.24.1
-* org.apache.tika:tika-parsers:1.24.1
-* org.apache.xmlgraphics:xmlgraphics-commons:2.3
-* org.codehaus.groovy:groovy-datetime:3.0.5
-* org.codehaus.groovy:groovy-dateutil:3.0.5
-* org.codehaus.groovy:groovy-jmx:3.0.5
-* org.codehaus.groovy:groovy-json:3.0.5
-* org.codehaus.groovy:groovy-jsr223:3.0.5
-* org.codehaus.groovy:groovy-sql:3.0.5
-* org.codehaus.groovy:groovy-templates:3.0.5
-* org.codehaus.groovy:groovy-xml:3.0.5
-* org.codehaus.groovy:groovy:3.0.5
+* org.apache.httpcomponents:httpasyncclient:4.1.5
+* org.apache.httpcomponents:httpclient:4.5.13
+* org.apache.httpcomponents:httpcore-nio:4.4.15
+* org.apache.httpcomponents:httpcore:4.4.15
+* org.apache.httpcomponents:httpmime:4.5.13
+* org.apache.logging.log4j:log4j-1.2-api:2.17.2
+* org.apache.logging.log4j:log4j-api:2.17.2
+* org.apache.logging.log4j:log4j-core:2.17.2
+* org.apache.logging.log4j:log4j-slf4j-impl:2.17.2
+* org.apache.tika:tika-core:1.28.3
+* org.apache.tika:tika-parsers:1.28.3
+* org.apache.xmlgraphics:batik-anim:1.14
+* org.apache.xmlgraphics:batik-awt-util:1.14
+* org.apache.xmlgraphics:batik-bridge:1.14
+* org.apache.xmlgraphics:batik-codec:1.14
+* org.apache.xmlgraphics:batik-constants:1.14
+* org.apache.xmlgraphics:batik-css:1.14
+* org.apache.xmlgraphics:batik-dom:1.14
+* org.apache.xmlgraphics:batik-ext:1.14
+* org.apache.xmlgraphics:batik-gvt:1.14
+* org.apache.xmlgraphics:batik-i18n:1.14
+* org.apache.xmlgraphics:batik-parser:1.14
+* org.apache.xmlgraphics:batik-script:1.14
+* org.apache.xmlgraphics:batik-shared-resources:1.14
+* org.apache.xmlgraphics:batik-svg-dom:1.14
+* org.apache.xmlgraphics:batik-svggen:1.14
+* org.apache.xmlgraphics:batik-transcoder:1.14
+* org.apache.xmlgraphics:batik-util:1.14
+* org.apache.xmlgraphics:batik-xml:1.14
+* org.apache.xmlgraphics:xmlgraphics-commons:2.7
+* org.codehaus.groovy:groovy-datetime:3.0.11
+* org.codehaus.groovy:groovy-dateutil:3.0.11
+* org.codehaus.groovy:groovy-jmx:3.0.11
+* org.codehaus.groovy:groovy-json:3.0.11
+* org.codehaus.groovy:groovy-jsr223:3.0.11
+* org.codehaus.groovy:groovy-sql:3.0.11
+* org.codehaus.groovy:groovy-templates:3.0.11
+* org.codehaus.groovy:groovy-xml:3.0.11
+* org.codehaus.groovy:groovy:3.0.11
 * xalan:serializer:2.7.2
 * xalan:xalan:2.7.2
-* xerces:xercesImpl:2.12.0
+* xerces:xercesImpl:2.12.2
 
 - Software produced at the ASF which is available under other licenses (not Apache-2.0)
 
@@ -229,24 +247,35 @@ Apache-1.1
 - Software produced outside the ASF which is available under Apache-2.0
 
 Apache-2.0
-* org.gradle:gradle-wrapper:6.7
+* org.gradle:gradle-wrapper:7.3
 * start-bootstrap-admin2:start-bootstrap-admin2:1.0.7
 * bsf:bsf:2.4.0
-* com.fasterxml.jackson.core:jackson-annotations:2.10.3
-* com.fasterxml.jackson.core:jackson-core:2.10.3
-* com.fasterxml.jackson.core:jackson-databind:2.10.3
-* com.github.ben-manes.caffeine:caffeine:2.8.0
-* com.google.errorprone:error_prone_annotations:2.3.3
-* com.helger:ph-commons:9.4.1
-* com.helger:ph-css:6.2.2
-* com.jayway.jsonpath:json-path:2.4.0
-* net.minidev:accessors-smart:1.2
-* net.minidev:json-smart:2.3
-* org.apiguardian:apiguardian-api:1.1.0
-* org.freemarker:freemarker:2.3.30
+* com.fasterxml.jackson.core:jackson-annotations:2.13.3
+* com.fasterxml.jackson.core:jackson-core:2.13.3
+* com.fasterxml.jackson.core:jackson-databind:2.13.3
+* com.github.ben-manes.caffeine:caffeine:2.9.3
+* com.google.errorprone:error_prone_annotations:2.10.0
+* com.helger.commons:ph-commons:10.1.6
+* com.helger:ph-css:6.5.0
+* com.jayway.jsonpath:json-path:2.7.0
+* io.github.microutils:kotlin-logging-jvm:2.0.5
+* net.minidev:accessors-smart:2.4.8
+* net.minidev:json-smart:2.4.8
+* org.apiguardian:apiguardian-api:1.1.2
+* org.freemarker:freemarker:2.3.31
+* org.jetbrains.kotlin:kotlin-stdlib-common:1.6.21
+* org.jetbrains.kotlin:kotlin-stdlib-jdk7:1.6.21
+* org.jetbrains.kotlin:kotlin-stdlib-jdk8:1.6.21
+* org.jetbrains.kotlin:kotlin-stdlib:1.6.21
+* org.jetbrains.kotlinx:kotlinx-coroutines-core-jvm:1.6.1
+* org.jetbrains.kotlinx:kotlinx-coroutines-swing:1.6.1
+* org.jetbrains.kotlinx:kotlinx-html-jvm:0.7.3
+* org.jetbrains:annotations:23.0.0
 * org.mongodb:mongo-java-driver:2.11.3
-* org.neo4j.driver:neo4j-java-driver:4.2.0
-* org.slf4j:jcl-over-slf4j:1.7.30
+* org.neo4j.driver:neo4j-java-driver:4.4.6
+* org.slf4j:jcl-over-slf4j:1.7.36
+* org.xmlresolver:xmlresolver:4.2.0
+* xml-apis:xml-apis-ext:1.3.04
 * xml-apis:xml-apis:1.4.01
 
 - Software produced outside the ASF which is available under other licenses (not Apache-2.0)
@@ -262,19 +291,18 @@ BSD-2-Clause
 * org.jodd:jodd-props:5.0.13
 
 BSD-3-Clause
-* com.fifesoft:rsyntaxtextarea:3.1.1
-* com.formdev:svgSalamander:1.1.2.1
-* com.miglayout:miglayout-core:5.2
-* com.miglayout:miglayout-swing:5.2
-* com.thoughtworks.xstream:xstream:1.4.14
-* io.burt:jmespath-core:0.5.0
-* io.burt:jmespath-jackson:0.5.0
+* com.fifesoft:rsyntaxtextarea:3.2.0
+* com.formdev:svgSalamander:1.1.2.4
+* com.miglayout:miglayout-core:5.3
+* com.miglayout:miglayout-swing:5.3
+* com.thoughtworks.xstream:xstream:1.4.19
+* io.burt:jmespath-core:0.5.1
+* io.burt:jmespath-jackson:0.5.1
 * net.sf.jtidy:jtidy:r938
-* org.exparity:hamcrest-date:2.0.7
+* org.exparity:hamcrest-date:2.0.8
 * org.hamcrest:hamcrest-core:2.2
 * org.hamcrest:hamcrest:2.2
-* org.ow2.asm:asm:7.3.1
-* org.swinglabs:jxlayer:3.0.4
+* org.ow2.asm:asm:9.3
 
 CC-BY-SA-3.0
 * openiconlibrary:openiconlibrary:
@@ -289,7 +317,10 @@ CDDL-1.0
 * com.sun.activation:javax.activation:1.2.0
 
 EPL-1.0
-* junit:junit:4.13
+* junit:junit:4.13.2
+
+Indiana University Extreme! Lab Software License (https://raw.githubusercontent.com/x-stream/mxparser/master/LICENSE.txt)
+* io.github.x-stream:mxparser:1.2.2
 
 MIT
 * bootstrap-social:bootstrap-social:4.8.0
@@ -303,32 +334,37 @@ MIT
 * font-awesome-code:font-awesome-code:4.2.0
 * jquery:jquery:2.1.3
 * metisMenu:metisMenu:1.1.3
-* com.github.weisj:darklaf-core:2.4.10
+* com.github.weisj:darklaf-core:2.7.3
 * com.github.weisj:darklaf-extensions-rsyntaxarea:0.3.4
-* com.github.weisj:darklaf-macos:2.4.10
-* com.github.weisj:darklaf-native-utils:2.4.10
-* com.github.weisj:darklaf-platform-base:2.4.10
-* com.github.weisj:darklaf-property-loader:2.4.10
-* com.github.weisj:darklaf-theme:2.4.10
-* com.github.weisj:darklaf-utils:2.4.10
-* com.github.weisj:darklaf-windows:2.4.10
+* com.github.weisj:darklaf-macos:2.7.3
+* com.github.weisj:darklaf-native-utils:2.7.3
+* com.github.weisj:darklaf-platform-base:2.7.3
+* com.github.weisj:darklaf-property-loader:2.7.3
+* com.github.weisj:darklaf-theme:2.7.3
+* com.github.weisj:darklaf-utils:2.7.3
+* com.github.weisj:darklaf-windows:2.7.3
+* com.github.weisj:swing-extensions-laf-support:0.1.3
+* com.github.weisj:swing-extensions-visual-padding:0.1.3
 * org.brotli:dec:0.1.2
-* org.checkerframework:checker-qual:2.10.0
-* org.jsoup:jsoup:1.13.1
-* org.slf4j:slf4j-api:1.7.30
+* org.checkerframework:checker-qual:3.19.0
+* org.jetbrains.lets-plot:base-portable-jvm:2.2.1
+* org.jetbrains.lets-plot:lets-plot-batik:2.2.1
+* org.jetbrains.lets-plot:lets-plot-common:2.2.1
+* org.jetbrains.lets-plot:lets-plot-kotlin-jvm:3.1.1
+* org.jetbrains.lets-plot:plot-base-portable-jvm:2.2.1
+* org.jetbrains.lets-plot:plot-builder-portable-jvm:2.2.1
+* org.jetbrains.lets-plot:plot-common-portable-jvm:2.2.1
+* org.jetbrains.lets-plot:plot-config-portable-jvm:2.2.1
+* org.jetbrains.lets-plot:vis-svg-portable-jvm:2.2.1
+* org.jsoup:jsoup:1.15.1
+* org.slf4j:slf4j-api:1.7.36
 
 MPL-2.0
-* net.sf.saxon:Saxon-HE:9.9.1-7
-* org.mozilla:rhino:1.7.13
+* net.sf.saxon:Saxon-HE:11.3
+* org.mozilla:rhino:1.7.14
 
 OFL-1.1
 * font-awesome-font:font-awesome-font:4.2.0
-
-Apache-2.0 AND LGPL, version 2.1 (http://www.gnu.org/licenses/licenses.html)
-* net.java.dev.jna:jna:5.5.0
-
-CC0-1.0 AND Indiana University Extreme! Lab Software License, version 1.1.1 (http://www.extreme.indiana.edu/viewcvs/~checkout~/XPP3/java/LICENSE.txt)
-* xpp3:xpp3_min:1.1.4c
 
 CDDL-1.0 AND GPL-2.0-or-later WITH Classpath-exception-2.0
 * javax.mail:mail:1.5.0-b01

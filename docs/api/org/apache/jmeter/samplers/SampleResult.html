@@ -18,7 +18,7 @@
     catch(err) {
     }
 //-->
-var methods = {"i0":10,"i1":10,"i2":10,"i3":10,"i4":10,"i5":10,"i6":10,"i7":9,"i8":9,"i9":10,"i10":10,"i11":10,"i12":42,"i13":10,"i14":42,"i15":10,"i16":10,"i17":10,"i18":10,"i19":10,"i20":10,"i21":10,"i22":10,"i23":10,"i24":10,"i25":10,"i26":10,"i27":10,"i28":10,"i29":10,"i30":10,"i31":10,"i32":10,"i33":10,"i34":10,"i35":10,"i36":10,"i37":10,"i38":10,"i39":10,"i40":10,"i41":10,"i42":10,"i43":10,"i44":10,"i45":10,"i46":10,"i47":10,"i48":10,"i49":10,"i50":10,"i51":10,"i52":10,"i53":9,"i54":10,"i55":42,"i56":9,"i57":10,"i58":10,"i59":42,"i60":10,"i61":10,"i62":10,"i63":10,"i64":10,"i65":10,"i66":10,"i67":10,"i68":10,"i69":10,"i70":10,"i71":10,"i72":10,"i73":42,"i74":10,"i75":42,"i76":10,"i77":10,"i78":10,"i79":10,"i80":10,"i81":10,"i82":10,"i83":10,"i84":10,"i85":10,"i86":10,"i87":10,"i88":10,"i89":42,"i90":10,"i91":10,"i92":10,"i93":10,"i94":10,"i95":42,"i96":10,"i97":10,"i98":10,"i99":10,"i100":10,"i101":10,"i102":10,"i103":10,"i104":10,"i105":10,"i106":10,"i107":10,"i108":42,"i109":10,"i110":10,"i111":10,"i112":10,"i113":10,"i114":10,"i115":10,"i116":10,"i117":10,"i118":10,"i119":10};
+var methods = {"i0":10,"i1":10,"i2":10,"i3":10,"i4":10,"i5":10,"i6":10,"i7":9,"i8":9,"i9":10,"i10":10,"i11":10,"i12":42,"i13":10,"i14":42,"i15":10,"i16":10,"i17":10,"i18":10,"i19":10,"i20":10,"i21":10,"i22":10,"i23":10,"i24":10,"i25":10,"i26":10,"i27":10,"i28":10,"i29":10,"i30":10,"i31":10,"i32":10,"i33":10,"i34":10,"i35":10,"i36":10,"i37":10,"i38":10,"i39":10,"i40":10,"i41":10,"i42":10,"i43":10,"i44":10,"i45":10,"i46":10,"i47":10,"i48":10,"i49":10,"i50":10,"i51":10,"i52":10,"i53":9,"i54":10,"i55":42,"i56":9,"i57":10,"i58":10,"i59":42,"i60":10,"i61":10,"i62":10,"i63":10,"i64":10,"i65":10,"i66":10,"i67":10,"i68":10,"i69":10,"i70":10,"i71":10,"i72":10,"i73":42,"i74":10,"i75":42,"i76":10,"i77":10,"i78":10,"i79":10,"i80":10,"i81":10,"i82":10,"i83":10,"i84":10,"i85":10,"i86":10,"i87":10,"i88":10,"i89":42,"i90":10,"i91":10,"i92":10,"i93":10,"i94":10,"i95":42,"i96":10,"i97":10,"i98":10,"i99":10,"i100":10,"i101":10,"i102":10,"i103":10,"i104":10,"i105":10,"i106":10,"i107":10,"i108":42,"i109":10,"i110":10,"i111":10,"i112":10,"i113":10,"i114":10,"i115":10,"i116":10,"i117":10,"i118":10,"i119":10,"i120":10};
 var tabs = {65535:["t0","All Methods"],1:["t1","Static Methods"],2:["t2","Instance Methods"],8:["t4","Concrete Methods"],32:["t6","Deprecated Methods"]};
 var altColor = "altColor";
 var rowColor = "rowColor";
@@ -865,6 +865,13 @@ implements <a href="https://docs.oracle.com/javase/8/docs/api/java/io/Serializab
 </td>
 </tr>
 <tr id="i119" class="rowColor">
+<td class="colFirst"><code>void</code></td>
+<td class="colLast"><code><span class="memberNameLink"><a href="../../../../org/apache/jmeter/samplers/SampleResult.html#storeSubResult-org.apache.jmeter.samplers.SampleResult-boolean-">storeSubResult</a></span>(<a href="../../../../org/apache/jmeter/samplers/SampleResult.html" title="class in org.apache.jmeter.samplers">SampleResult</a>&nbsp;subResult,
+              boolean&nbsp;renameSubResults)</code>
+<div class="block">Add a subresult read from a results file.</div>
+</td>
+</tr>
+<tr id="i120" class="altColor">
 <td class="colFirst"><code><a href="https://docs.oracle.com/javase/8/docs/api/java/lang/String.html?is-external=true" title="class or interface in java.lang">String</a></code></td>
 <td class="colLast"><code><span class="memberNameLink"><a href="../../../../org/apache/jmeter/samplers/SampleResult.html#toString--">toString</a></span>()</code>
 <div class="block">Returns the display name.</div>
@@ -1391,6 +1398,25 @@ implements <a href="https://docs.oracle.com/javase/8/docs/api/java/io/Serializab
 <dl>
 <dt><span class="paramLabel">Parameters:</span></dt>
 <dd><code>subResult</code> - the <a href="../../../../org/apache/jmeter/samplers/SampleResult.html" title="class in org.apache.jmeter.samplers"><code>SampleResult</code></a> to be added</dd>
+</dl>
+</li>
+</ul>
+<a name="storeSubResult-org.apache.jmeter.samplers.SampleResult-boolean-">
+<!--   -->
+</a>
+<ul class="blockList">
+<li class="blockList">
+<h4>storeSubResult</h4>
+<pre>public&nbsp;void&nbsp;storeSubResult(<a href="../../../../org/apache/jmeter/samplers/SampleResult.html" title="class in org.apache.jmeter.samplers">SampleResult</a>&nbsp;subResult,
+                           boolean&nbsp;renameSubResults)</pre>
+<div class="block">Add a subresult read from a results file.
+ <p>
+ As for <a href="../../../../org/apache/jmeter/samplers/SampleResult.html#addSubResult-org.apache.jmeter.samplers.SampleResult-"><code>addSubResult(SampleResult)</code></a>, except that the fields don't need to be
+ accumulated</div>
+<dl>
+<dt><span class="paramLabel">Parameters:</span></dt>
+<dd><code>subResult</code> - the <a href="../../../../org/apache/jmeter/samplers/SampleResult.html" title="class in org.apache.jmeter.samplers"><code>SampleResult</code></a> to be added</dd>
+<dd><code>renameSubResults</code> - boolean do we rename subResults based on position</dd>
 </dl>
 </li>
 </ul>
@@ -2641,6 +2667,6 @@ public&nbsp;void&nbsp;setStartNextThreadLoop(boolean&nbsp;startNextThreadLoop)</
 <!--   -->
 </a></div>
 <!-- ======== END OF BOTTOM NAVBAR ======= -->
-<p class="legalCopy"><small>Copyright © 1998-2020 Apache Software Foundation. All Rights Reserved.</small></p>
+<p class="legalCopy"><small>Copyright © 1998-2022 Apache Software Foundation. All Rights Reserved.</small></p>
 </body>
 </html>

@@ -331,6 +331,8 @@
 <li>
 <a href="#Test_Plan">Test Plan</a></li>
 <li>
+<a href="#Open_Model_Thread_Group">Open Model Thread Group</a></li>
+<li>
 <a href="#Thread_Group">Thread Group</a></li>
 <li>
 <a href="#WorkBench">WorkBench</a></li>
@@ -976,10 +978,12 @@ No
         does not send a file, if filled in, JMeter automatically sends the request as
         a multipart form request.
         <p>
-        If it is a <tt class="code">POST</tt> or <tt class="code">PUT</tt> or <tt class="code">PATCH</tt> request and there is a single file whose 'Parameter name' attribute (below) is omitted,
-        then the file is sent as the entire body
-        of the request, i.e. no wrappers are added. This allows arbitrary bodies to be sent. This functionality is present for <tt class="code">POST</tt> requests,
-        and also for <tt class="code">PUT</tt> requests.
+        When <tt class="code">MIME Type</tt> is empty, JMeter will try to guess the MIME type of the given file.
+        </p>
+        <p>
+        If it is a <tt class="code">POST</tt> or <tt class="code">PUT</tt> or <tt class="code">PATCH</tt> request and there is a single file whose '<tt class="code">Parameter name</tt>'
+        attribute (below) is omitted, then the file is sent as the entire body of the request, i.e. no wrappers are added. This allows arbitrary
+        bodies to be sent. This functionality is present for <tt class="code">POST</tt> requests, and also for <tt class="code">PUT</tt> requests.
         <b>See below for some further information on parameter handling.</b>
         </p>
         </td>
@@ -3085,7 +3089,7 @@ No
 </tr>
 <tr>
 <td>Cache compiled script if available</td>
-<td>If checked (advised) and the language used supports <tt class="code"><a href="https://docs.oracle.com/javase/8/docs/api/javax/script/Compilable.html">Compilable</a></tt> interface (Groovy is one of these, java, beanshell and javascript are not), JMeter will compile the Script and cache it using it's MD5 hash as unique cache key</td>
+<td>If checked (advised) and the language used supports <tt class="code"><a href="https://docs.oracle.com/javase/8/docs/api/javax/script/Compilable.html">Compilable</a></tt> interface (Groovy is one of these, java, beanshell and javascript are not), JMeter will compile the Script and cache it using its MD5 hash as unique cache key</td>
 <td>
 No
 </td>
@@ -5177,7 +5181,7 @@ Yes
         <p>This sampler allows you to run Cypher queries through the Bolt protocol.</p>
         <p>Before using this you need to set up a <a href="../usermanual/component_reference.html#Bolt_Connection_Configuration">Bolt Connection Configuration</a></p>
         <p>Every request uses a connection acquired from the pool and returns it to the pool when the sampler completes.
-        The connection pool size use the driver defaults (~100) and is not configurable at the moment.</p>
+        The connection pool size defaults to 100 and is configurable.</p>
         <p>The measured response time corresponds to the &quot;full&quot; query execution, including both
         the time to execute the cypher query AND the time to consume the results sent back by the database.</p>
     <p><b>Control Panel</b></p>
@@ -5223,6 +5227,31 @@ No
             Whether to add or not query result data to the sampler response (default false).
             Note that activating this has a memory overhead, use it wisely.
         </td>
+<td>
+No
+</td>
+</tr>
+<tr>
+<td>Access Mode</td>
+<td>Whether to access the database in WRITE or READ mode.
+            Use WRITE for a standalone Neo4j instance.
+            For a Neo4j cluster, select mode depending on whether the query writes to the database.
+            That setting will allow correct routing to the cluster leader, followers or read replicas.</td>
+<td>
+Yes
+</td>
+</tr>
+<tr>
+<td>Database</td>
+<td>The database to run the query against.
+            Required for Neo4j 4.0+, unless querying the default database. Must be undefined for Neo4j 3.5.</td>
+<td>
+No
+</td>
+</tr>
+<tr>
+<td>Transaction timeout</td>
+<td>Timeout for the transaction.</td>
 <td>
 No
 </td>
@@ -5815,7 +5844,7 @@ No
 </td></tr>
 <tr><td>
 
-        <p>The Runtime Controller controls how long its children how long its children will run.
+        <p>The Runtime Controller controls how long its children will run.
         Controller will run its children until configured <tt class="code">Runtime(s)</tt> is exceeded.
         </p>
     <p><b>Control Panel</b></p>
@@ -7313,7 +7342,7 @@ It is important to choose the sampler names correctly to get the best results fr
 the Aggregate Report.
 </p>
 <p>
-Calculation of the <a href="glossary.html#Median">Median</a> and 90% Line (90<sup>th</sup> <a href="glossary.html#Percentile">percentile</a>) values requires additional memory.
+Calculation of the <a href="glossary.html#Median">Median</a> and 90 % Line (90<sup>th</sup> <a href="glossary.html#Percentile">percentile</a>) values requires additional memory.
 JMeter now combines samples with the same elapsed time, so far less memory is used.
 However, for samples that take more than a few seconds, the probability is that fewer samples will have identical times,
 in which case more memory will be needed.
@@ -7341,12 +7370,12 @@ This allows identical labels from different thread groups to be collated separat
 <li><tt class="code"># Samples</tt> - The number of samples with the same label</li>
 <li><tt class="code">Average</tt> - The average time of a set of results</li>
 <li><tt class="code">Median</tt> - The <a href="glossary.html#Median">median</a> is the time in the middle of a set of results.
-50% of the samples took no more than this time; the remainder took at least as long.</li>
-<li><tt class="code">90% Line</tt> - 90% of the samples took no more than this time.
+50 % of the samples took no more than this time; the remainder took at least as long.</li>
+<li><tt class="code">90% Line</tt> - 90 % of the samples took no more than this time.
 The remaining samples took at least as long as this. (90<sup>th</sup> <a href="glossary.html#Percentile">percentile</a>)</li>
-<li><tt class="code">95% Line</tt> - 95% of the samples took no more than this time.
+<li><tt class="code">95% Line</tt> - 95 % of the samples took no more than this time.
 The remaining samples took at least as long as this. (95<sup>th</sup> <a href="glossary.html#Percentile">percentile</a>)</li>
-<li><tt class="code">99% Line</tt> - 99% of the samples took no more than this time.
+<li><tt class="code">99% Line</tt> - 99 % of the samples took no more than this time.
 The remaining samples took at least as long as this. (99<sup>th</sup> <a href="glossary.html#Percentile">percentile</a>)</li>
 <li><tt class="code">Min</tt> - The shortest time for the samples with the same label</li>
 <li>Max - The longest time for the samples with the same label</li>
@@ -9799,6 +9828,13 @@ Yes
 </td>
 </tr>
 <tr>
+<td>Pool Prepared Statements</td>
+<td>Max number of Prepared Statements to pool per connection. <tt class="code">&quot;-1</tt>&quot; disables the pooling and &quot;<tt class="code">0</tt>&quot; means unlimited number of Prepared Statements to pool. (Defaults to &quot;<tt class="code">-1</tt>&quot;)</td>
+<td>
+Yes
+</td>
+</tr>
+<tr>
 <td>Preinit Pool</td>
 <td>The connection pool can be initialized instantly. If set to <tt class="code">False</tt> (default), the JDBC request samplers using this pool might measure higher response times for the first queries – as the connection establishment time for the whole pool is included.</td>
 <td>
@@ -10926,6 +10962,15 @@ No
 <td>User credentials.</td>
 <td>
 No
+</td>
+</tr>
+<tr>
+<td>Connection Pool Max Size</td>
+<td>Max size of the Neo4j driver Bolt connection pool.
+            Raise the value if running large number of concurrent threads, so that JMeter threads are not blocked waiting
+            for a connection to be released to the pool.</td>
+<td>
+Yes
 </td>
 </tr>
 </table>
@@ -12144,6 +12189,17 @@ Yes
             Second, it will search for specified path, using syntax from <a href="https://github.com/json-path/JsonPath">Jayway JsonPath 1.2.0</a>. If the path is not found, it will fail.
             Third, if JSON path was found in the document, and validation against expected value was requested, it will perform validation. For the <tt class="code">null</tt> value there is special checkbox in the GUI.
             Note that if the path will return array object, it will be iterated and if expected value is found, the assertion will succeed. To validate empty array use <tt class="code">[]</tt> string. Also, if patch will return dictionary object, it will be converted to string before comparison.
+           <p>
+<table border="1" bgcolor="#bbbb00" width="50%" cellspacing="0" cellpadding="2">
+<tr><td>When using <a href="https://github.com/json-path/JsonPath#what-is-returned-when">indefinite JSON Paths</a>
+             you must assert the value due to the existing JSON library implementation, otherwise the assertion could always
+             return successful.<br>
+
+             Since JMeter version 5.5 the assertion will fail, if an indefinite path is given, an empty list is extracted and
+             no assertion value is set.</td></tr>
+</table>
+</p>
+
         </p>
     <p><b>Control Panel</b></p>
 <div align="center"><img width='1095' height='307' src="../../docs/images/screenshots/assertion/json_assertion.png"/></div>
@@ -12469,7 +12525,7 @@ Yes
 </font>
 </td></tr>
 <tr><td>
-<p>This timer introduces variable pauses, calculated to keep the total throughput (in terms of samples per minute) as close as possible to a give figure. Of course the throughput will be lower if the server is not capable of handling it, or if other timers or time-consuming test elements prevent it.</p>
+<p>This timer introduces variable pauses, calculated to keep the total throughput (in terms of samples per minute) as close as possible to a given figure. Of course the throughput will be lower if the server is not capable of handling it, or if other timers or time-consuming test elements prevent it.</p>
 <p>
 N.B. although the Timer is called the Constant Throughput timer, the throughput value does not need to be constant.
 It can be defined in terms of a variable or function call, and the value can be changed during a test.
@@ -12544,7 +12600,25 @@ Yes
 </font>
 </td></tr>
 <tr><td>
-<p>This timer introduces variable pauses, calculated to keep the total throughput (e.g. in terms of samples per minute) as close as possible to a give figure. Of course the throughput will be lower if the server is not capable of handling it, or if other timers, or if there's not enough threads, or time-consuming test elements prevent it.</p>
+<p>This timer introduces variable pauses, calculated to keep the total throughput (e.g. in terms of samples per minute) as close as possible to a given figure. The timer does not generate threads, so the resulting throughput will be lower if the server is not capable of handling it, or if other timers add too big delays, or if there's not enough threads, or time-consuming test elements prevent it.</p>
+
+<p>
+<table border="1" bgcolor="#bbbb00" width="50%" cellspacing="0" cellpadding="2">
+<tr><td>Note: in many cases, Open Model Thread Group would be a better choice for generating the desired load profile</td></tr>
+</table>
+</p>
+
+
+<p>
+<table border="1" bgcolor="#bbbb00" width="50%" cellspacing="0" cellpadding="2">
+<tr><td>Note: if you alter timer configuration on the fly, then it might take time to adapt to the new settings.
+For instance, if the timer was initially configured for 1 request per hour, then it assigns incoming
+threads with 3600+sec pauses. Then, if the load configuration is altered to 1 per second, then
+the threads are not interrupted from their delays, and the threads keep waiting.</td></tr>
+</table>
+</p>
+
+
 <p>Although the Timer is called Precise Throughput Timer, it does not aim to produce precisely the same number of samples over one-second intervals during the test.</p>
 <p>The timer works best for rates under 36000 requests/hour, however your mileage might vary (see monitoring section below if your goals are
     vastly different).</p>
@@ -12563,7 +12637,7 @@ Yes
 
 <h4>Ramp-up and startup spike</h4>
 <p>You might used &quot;ramp-up&quot; or similar approaches to avoid a spike at the test start. For instance, if you configure <a href="../usermanual/component_reference.html#Thread_Group">Thread Group</a> to have
-    100 threads, and set <tt class="code">Ramp-up Period</tt> to 0 (or to a small number), then all the threads would start at the same time, and it would produce an unwanted spike of the load. On top of that, if you set <tt class="code">Ramp-up Period</tt> too high, it might result in &quot;too few&quot; threads being available at the very beginning to achieve
+    100 threads, and set <tt class="code">Ramp-up Period</tt> to <tt class="code">0</tt> (or to a small number), then all the threads would start at the same time, and it would produce an unwanted spike of the load. On top of that, if you set <tt class="code">Ramp-up Period</tt> too high, it might result in &quot;<em>too few</em>&quot; threads being available at the very beginning to achieve
 the required load.</p>
 <p><tt class="code">Precise Throughput Timer</tt> schedules executions in a random way, so it can be used to generate constant load, and it is recommended to set both
     <tt class="code">Ramp-up Period</tt> and <tt class="code">Delay</tt> to <tt class="code">0</tt>.</p>
@@ -14187,7 +14261,7 @@ No
 </td>
 </tr>
 </table>
-<p>To allow for use in a <a href="../usermanual/component_reference.html#ForEach_Controller">ForEach Controller</a>, it works exactly the same as the above XPath Extractor</p><p>XPath2 Extractor provides some interestings tools such as an improved syntax and much more functions than in it's first version.</p><p>Here are some exemples: </p><dl>
+<p>To allow for use in a <a href="../usermanual/component_reference.html#ForEach_Controller">ForEach Controller</a>, it works exactly the same as the above XPath Extractor</p><p>XPath2 Extractor provides some interestings tools such as an improved syntax and much more functions than in its first version.</p><p>Here are some exemples: </p><dl>
    <dt><tt class="code">abs(/book/page[2])</tt></dt>
      <dd>extracts 2<sup>nd</sup> absolute value of the page from a book</dd>
    <dt><tt class="code">avg(/librarie/book/page)</tt></dt>
@@ -14513,8 +14587,7 @@ prefix2=http\://toto.apache.org
 </td></tr>
 <tr><td>
 This test element allows the user to extract value(s) from
-        structured response - XML or (X)HTML - using JMESPath
-        query language.
+        JSON response using JMESPath query language.
    <p><b>Control Panel</b></p>
 <div align="center"><img width='896' height='205' src="../../docs/images/screenshots/extractor/jmespath_extractor.png"/></div>
 <p>
@@ -14922,34 +14995,51 @@ No
 </td>
 </tr>
 <tr>
+<td>Apply to:</td>
+<td>
+        This is for use with samplers that can generate sub-samples,
+        e.g. HTTP Sampler with embedded resources, Mail Reader or samples generated by the Transaction Controller.
+        <dl>
+        <dt><tt class="code">Main sample only</tt></dt><dd>only applies to the main sample</dd>
+        <dt><tt class="code">Sub-samples only</tt></dt><dd>only applies to the sub-samples</dd>
+        <dt><tt class="code">Main sample and sub-samples</tt></dt><dd>applies to both.</dd>
+        <dt><tt class="code">JMeter Variable Name to use</tt></dt><dd>extraction is to be applied to the contents of the named variable</dd>
+        </dl>
+    </td>
+<td>
+Yes
+</td>
+</tr>
+<tr>
 <td>Names of created variables</td>
-<td>Semi-colon separated names of variables that will contain the results of JSON-PATH expressions (must match number of JSON-PATH expressions)</td>
+<td>Semicolon separated names of variables that will contain the results of JSON-PATH expressions (must match number of JSON-PATH expressions)</td>
 <td>
 Yes
 </td>
 </tr>
 <tr>
 <td>JSON Path Expressions</td>
-<td>Semi-colon separated JSON-PATH expressions (must match number of variables)</td>
+<td>Semicolon separated JSON-PATH expressions (must match number of variables)</td>
 <td>
 Yes
 </td>
 </tr>
 <tr>
 <td>Default Values</td>
-<td>Semi-colon separated default values if JSON-PATH expressions do not return any result(must match number of variables)</td>
+<td>Semicolon separated default values if JSON-PATH expressions do not return any result(must match number of variables)</td>
 <td>
 No
 </td>
 </tr>
 <tr>
-<td>Match No. (0 for Random)</td>
-<td>If the JSON Path query leads to many results, you can choose which one(s) to extract as Variables:
+<td>Match Numbers</td>
+<td>For each JSON Path Expression, if the JSON Path query leads to many results, you can choose which one(s) to extract as Variables:
     <ul>
         <li><tt class="code">0</tt>: means random (Default Value)</li>
         <li><tt class="code">-1</tt> means extract all results, they will be named as <tt class="code"><em>&lt;variable name&gt;</em>_N</tt> (where <tt class="code">N</tt> goes from 1 to Number of results)</li>
-        <li><tt class="code">X</tt>: means extract the X<sup>th</sup> result. If this X<sup>th</sup> is greater than number of matches, then nothing is returned. Default value will be used</li>
+        <li><tt class="code">X</tt>: means extract the <em>X</em><sup>th</sup> result. If this <em>X</em><sup>th</sup> is greater than number of matches, then nothing is returned. Default value will be used</li>
     </ul>
+    The numbers have to be given as a Semicolon separated list. The number of elements in that list have to match the number of given JSON Path Expressions. If left empty, the value <tt class="code">0</tt> will be used as default for every expression.
     </td>
 <td>
 No
@@ -15228,6 +15318,104 @@ See <a href="get-started.html#classpath">JMeter's Classpath</a> and
 <tr><td>
 <font face="arial,helvetica,sanserif">
 <h3>
+<a name="Open_Model_Thread_Group"> Open Model Thread Group</a>
+</h3>
+</font>
+</td></tr>
+<tr><td>
+
+    <p>
+<table border="1" bgcolor="#bbbb00" width="50%" cellspacing="0" cellpadding="2">
+<tr><td>This thread group is experimental, and it might change in the future releases. Please provide your feedback on what works and what could be improved.</td></tr>
+</table>
+</p>
+
+    <p>Open Model Thread Group defines a pool of users that will execute a particular test case against the server.
+       The users are generated according to the schedule.
+    </p>
+    <p>The load profile consists of a sequence of constant, increasing or decreasing load.
+       The following commands are available:
+        <ul>
+            <li><tt class="code">rate(&lt;number&gt;/sec)</tt> — configures target load rate.
+                The following time units are supported: <tt class="code">ms</tt>, <tt class="code">sec</tt>, <tt class="code">min</tt>, <tt class="code">hour</tt>, <tt class="code">day</tt>.
+                You can omit time unit in case the rate is 0: <tt class="code">rate(0)</tt></li>
+            <li><tt class="code">random_arrivals(&lt;number&gt; sec)</tt> — configures random arrivals schedule with the given duration.
+                The starting load rate is configured before <tt class="code">random_arrivals</tt>, and the finish load rate is configured after <tt class="code">random_arrivals</tt>.
+                For example, 10 minute test from 5/sec at the beginning till 15/sec at the end could be configured as <tt class="code">rate(5/sec) random_arrivals(10 min) rate(15/sec)</tt>.
+                <br>
+The implicit rate at the beginning of the test is 0. If the finish rate is not provided (or if several <tt class="code">random_arrivals</tt> steps go one after another),
+                then the load is constant. For instance, <tt class="code">rate(3/sec) random_arrivals(1 min) random_arrivals(2 min) rate(6/sec)</tt> configures
+                constant rate of 3/sec for the first 1 minute, and then the load increases from 3/sec till 6/sec during the next 2 minutes.
+                The time units are the same as in <tt class="code">rate</tt>.
+            </li>
+            <li><tt class="code">even_arrivals(&lt;number&gt; sec)</tt> — configures even arrivals (TODO: not implemented yet). For instance, if the desired load
+                is 1/sec, then <tt class="code">random_arrivals</tt> would lauch samples with exactly 1 second intervals.</li>
+            <li><tt class="code">pause(&lt;number&gt; sec)</tt> — configures a pause for the given duration.
+                The rate is restored after the pause, so <tt class="code">rate(2/sec) random_arrivals(5 sec) pause(5 sec) random_arrivals(5 sec)</tt>
+                generates random arrivals with 2/sec rate, then a pause for 5 seconds (no new arrivals), then 5 more seconds with 2/sec rate.<br>
+
+                Note: <tt class="code">pause</tt> duration is always honoured, even if all the scenarios are complete, and no new ones will be scheduled.
+                For instance, if you use <tt class="code">rate(1/sec) random_arrivals(1 min) pause(1 hour)</tt>, the thread group would
+                always last for 61 minutes no matter how much time do individual scenarios take.
+            </li>
+            <li><tt class="code">/* Comments */</tt> can be used to clarify the schedule or temporary disable some steps. Comments
+                cannot be nested.</li>
+            <li><tt class="code">// line comments</tt> can be used to clarify the schedule or temporary disable some steps.
+                Line comment lasts till the end of the line.</li>
+        </ul>
+    </p>
+    <p>The thread groups terminates threads as soon as the schedule ends. In other words, the threads are interrupted
+        after all <tt class="code">arrivals</tt> and <tt class="code">pause</tt> intervals.
+        If you want to let the threads complete safely, consider adding <tt class="code">pause(5 min)</tt> at the end of the schedule.
+        That will add 5 minutes for the threads to continue.
+    </p>
+    <p>There are no special functions for generating the load profile in a loop, however, the default JMeter templating functions
+        can be helpful for generating the schedule.
+    </p>
+    <p>For example, the following pattern would generate a sequence of 10 steps where each step lasts 10 seconds: 10/sec, 20/sec, 30/sec, ...
+        <tt class="code">${__groovy((1..10).collect { &quot;rate(&quot; + it*10 + &quot;/sec) random_arrivals(10 sec) pause(1 sec)&quot; }.join(&quot; &quot;))}</tt>
+        You can get variables from properties as follows:
+        <tt class="code">rate(${__P(beginRate,40)}) random_arrivals(${__P(testDuration, 10)} sec) rate(${__P(endRate,40)})</tt>
+    </p>
+    <p>Currently, the load profile is evaluated at the beginning of the test only, so if you use dynamic functions, then only the first result will be used.
+    </p>
+<p><b>Control Panel</b></p>
+<div align="center"><img width='1398' height='1117' src="../../docs/images/screenshots/open_model_thread_group.png"/></div>
+<p>
+<b>Parameters</b>
+</p>
+<table border="1" cellspacing="0" cellpadding="2">
+<tr><th>Attribute</th><th>Description</th><th>Required</th></tr>
+<tr>
+<td>Name</td>
+<td>Descriptive name for this thread group that is shown in the tree</td>
+<td>
+No
+</td>
+</tr>
+<tr>
+<td>Schedule</td>
+<td>The expression that configures schedule. For example: <tt class="code">rate(5/sec) random_arrivals(1 min) pause(5 sec)</tt></td>
+<td>
+Yes
+</td>
+</tr>
+<tr>
+<td>Random Seed (change from 0 to random)</td>
+<td>Note: different thread groups should better have different seed values. Constant seed ensures thread group generates the same delays each test start. The value of &quot;0&quot; means the schedule is truly random (non-repeatable from one execution to another)..</td>
+<td>
+No
+</td>
+</tr>
+</table>
+</td></tr>
+<tr><td><br></td></tr>
+</table>
+<hr>
+<table border="0" cellspacing="0" cellpadding="2">
+<tr><td>
+<font face="arial,helvetica,sanserif">
+<h3>
 <a name="Thread_Group">18.9.2 Thread Group</a>
 </h3>
 </font>
@@ -15252,23 +15440,23 @@ Since JMeter 3.0, you can run a selection of Thread Group by selecting them and 
 
 
 <br>
-Notice you have 3 options to run the selection of Thread Groups:
-<ul>
-<li>Start: Start the selected thread groups only</li>
-<li>Start no pauses: Start the selected thread groups only but without running the timers</li>
-<li>Validate: Start the selected thread groups only using validation mode. Per default this runs the Thread Group in validation mode (see below)</li>
-</ul>
+Notice you have three options to run the selection of Thread Groups:
+<dl>
+<dt><tt class="code">Start</tt></dt><dd>Start the selected thread groups only</dd>
+<dt><tt class="code">Start no pauses</tt></dt><dd>Start the selected thread groups only but without running the timers</dd>
+<dt><tt class="code">Validate</tt></dt><dd>Start the selected thread groups only using validation mode. Per default this runs the Thread Group in validation mode (see below)</dd>
+</dl>
 
 <b>Validation Mode:</b><br>
 
-This mode enables rapid validation of a Thread Group by running it with 1 thread, 1 iteration, no timers and no <tt class="code">Startup delay</tt> set to <tt class="code">0</tt>.
+This mode enables rapid validation of a Thread Group by running it with one thread, one iteration, no timers and no <tt class="code">Startup delay</tt> set to <tt class="code">0</tt>.
 Behaviour can be modified with some properties by setting in <tt class="code">user.properties</tt>:
-<ul>
-<li><tt class="code">testplan_validation.nb_threads_per_thread_group</tt>: Number of threads to use to validate a Thread Group, by default <tt class="code">1</tt></li>
-<li><tt class="code">testplan_validation.ignore_timers</tt>: Ignore timers when validating the thread group of plan, by default <tt class="code">1</tt></li>
-<li><tt class="code">testplan_validation.number_iterations</tt>: Number of iterations to use to validate a Thread Group</li>
-<li><tt class="code">testplan_validation.tpc_force_100_pct</tt>: Whether to force Throughput Controller in percentage mode to run as if percentage was 100%. Defaults to <tt class="code">false</tt></li>
-</ul>
+<dl>
+<dt><tt class="code">testplan_validation.nb_threads_per_thread_group</tt></dt><dd>Number of threads to use to validate a Thread Group, by default <tt class="code">1</tt></dd>
+<dt><tt class="code">testplan_validation.ignore_timers</tt></dt><dd>Ignore timers when validating the thread group of plan, by default <tt class="code">1</tt></dd>
+<dt><tt class="code">testplan_validation.number_iterations</tt></dt><dd>Number of iterations to use to validate a Thread Group</dd>
+<dt><tt class="code">testplan_validation.tpc_force_100_pct</tt></dt><dd>Whether to force Throughput Controller in percentage mode to run as if percentage was 100 %. Defaults to <tt class="code">false</tt></dd>
+</dl>
 </p><p>
 <b>Parameters</b>
 </p>
@@ -15307,7 +15495,36 @@ Yes
 </tr>
 <tr>
 <td>Ramp-up Period</td>
-<td>How long JMeter should take to get all the threads started.  If there are 10 threads and a ramp-up time of 100 seconds, then each thread will begin 10 seconds after the previous thread started, for a total time of 100 seconds to get the test fully up to speed.</td>
+<td>How long JMeter should take to get all the threads started.
+            If there are 10 threads and a ramp-up time of 100 seconds, then each thread will begin 10 seconds after
+            the previous thread started, for a total time of 100 seconds to get the test fully up to speed.
+            <p>
+<table border="1" bgcolor="#bbbb00" width="50%" cellspacing="0" cellpadding="2">
+<tr><td>The first thread will always start directly, so if you configured <strong>one</strong> thread,
+                the ramp-up time is effectively <strong>zero</strong>. For the same reason, the tenth thread in
+                the above example will actually be started after 90 seconds and not 100 seconds.</td></tr>
+</table>
+</p>
+
+        </td>
+<td>
+Yes
+</td>
+</tr>
+<tr>
+<td>Same user on each iteration</td>
+<td>
+            If selected, cookie and cache data from the first sampler response are used in subsequent requests (requires a global Cookie and Cache Manager respectively).
+            <br>
+
+            If not selected, cookie and cache data from the first sampler response are not used in subsequent requests.
+            <p>
+<table border="1" bgcolor="#bbbb00" width="50%" cellspacing="0" cellpadding="2">
+<tr><td>If not selected, a new connection will be opened between iterations which will result in increased response times and consume more resources (memory and cpu).</td></tr>
+</table>
+</p>
+
+        </td>
 <td>
 Yes
 </td>
@@ -15317,6 +15534,24 @@ Yes
 <td>Number of times to perform the test case.  Alternatively, &quot;<tt class="code">infinite</tt>&quot; can be selected causing the test to run until manually stopped or end of the thread lifetime is reached.</td>
 <td>
 Yes, unless Infinite is selected
+</td>
+</tr>
+<tr>
+<td>Same user on each iteration</td>
+<td>
+            If selected, cookie and cache data from the first sampler response are used in subsequent requests (requires a global Cookie and Cache Manager respectively).
+            <br>
+
+            If not selected, cookie and cache data from the first sampler response are not used in subsequent requests.
+            <p>
+<table border="1" bgcolor="#bbbb00" width="50%" cellspacing="0" cellpadding="2">
+<tr><td>If not selected, a new connection will be opened between iterations which will result in increased response times and consume more resources (memory and cpu).</td></tr>
+</table>
+</p>
+
+        </td>
+<td>
+Yes
 </td>
 </tr>
 <tr>
@@ -16516,7 +16751,7 @@ If Test Plan is stopped, tearDown will not run even if option is checked.
 <tr>
 <td>
 <font color="#525D76" size="-1"><em>
-Copyright &copy; 1999-2020, Apache Software Foundation
+Copyright &copy; 1999-2022, Apache Software Foundation
 </em></font>
 </td>
 <td align="right">

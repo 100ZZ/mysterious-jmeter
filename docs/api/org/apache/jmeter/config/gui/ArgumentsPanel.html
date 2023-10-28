@@ -329,6 +329,27 @@ implements <a href="https://docs.oracle.com/javase/8/docs/api/java/awt/event/Act
 <div class="block">Create a new ArgumentsPanel with a border and color background</div>
 </td>
 </tr>
+<tr class="altColor">
+<td class="colOne"><code><span class="memberNameLink"><a href="../../../../../org/apache/jmeter/config/gui/ArgumentsPanel.html#ArgumentsPanel-java.lang.String-java.awt.Color-boolean-boolean-org.apache.jorphan.gui.ObjectTableModel-boolean-java.util.function.Function-">ArgumentsPanel</a></span>(<a href="https://docs.oracle.com/javase/8/docs/api/java/lang/String.html?is-external=true" title="class or interface in java.lang">String</a>&nbsp;label,
+              <a href="https://docs.oracle.com/javase/8/docs/api/java/awt/Color.html?is-external=true" title="class or interface in java.awt">Color</a>&nbsp;bkg,
+              boolean&nbsp;enableUpDown,
+              boolean&nbsp;standalone,
+              <a href="../../../../../org/apache/jorphan/gui/ObjectTableModel.html" title="class in org.apache.jorphan.gui">ObjectTableModel</a>&nbsp;model,
+              boolean&nbsp;disableButtons,
+              <a href="https://docs.oracle.com/javase/8/docs/api/java/util/function/Function.html?is-external=true" title="class or interface in java.util.function">Function</a>&lt;<a href="https://docs.oracle.com/javase/8/docs/api/java/lang/String.html?is-external=true" title="class or interface in java.lang">String</a>[],<a href="../../../../../org/apache/jmeter/config/Argument.html" title="class in org.apache.jmeter.config">Argument</a>&gt;&nbsp;argCreator)</code>
+<div class="block">Create a new ArgumentsPanel with a border and color background</div>
+</td>
+</tr>
+<tr class="rowColor">
+<td class="colOne"><code><span class="memberNameLink"><a href="../../../../../org/apache/jmeter/config/gui/ArgumentsPanel.html#ArgumentsPanel-java.lang.String-java.awt.Color-boolean-boolean-org.apache.jorphan.gui.ObjectTableModel-java.util.function.Function-">ArgumentsPanel</a></span>(<a href="https://docs.oracle.com/javase/8/docs/api/java/lang/String.html?is-external=true" title="class or interface in java.lang">String</a>&nbsp;label,
+              <a href="https://docs.oracle.com/javase/8/docs/api/java/awt/Color.html?is-external=true" title="class or interface in java.awt">Color</a>&nbsp;bkg,
+              boolean&nbsp;enableUpDown,
+              boolean&nbsp;standalone,
+              <a href="../../../../../org/apache/jorphan/gui/ObjectTableModel.html" title="class in org.apache.jorphan.gui">ObjectTableModel</a>&nbsp;model,
+              <a href="https://docs.oracle.com/javase/8/docs/api/java/util/function/Function.html?is-external=true" title="class or interface in java.util.function">Function</a>&lt;<a href="https://docs.oracle.com/javase/8/docs/api/java/lang/String.html?is-external=true" title="class or interface in java.lang">String</a>[],<a href="../../../../../org/apache/jmeter/config/Argument.html" title="class in org.apache.jmeter.config">Argument</a>&gt;&nbsp;argCreator)</code>
+<div class="block">Create a new ArgumentsPanel with a border and color background</div>
+</td>
+</tr>
 </table>
 </li>
 </ul>
@@ -738,10 +759,34 @@ implements <a href="https://docs.oracle.com/javase/8/docs/api/java/awt/event/Act
 </dl>
 </li>
 </ul>
+<a name="ArgumentsPanel-java.lang.String-java.awt.Color-boolean-boolean-org.apache.jorphan.gui.ObjectTableModel-java.util.function.Function-">
+<!--   -->
+</a>
+<ul class="blockList">
+<li class="blockList">
+<h4>ArgumentsPanel</h4>
+<pre>public&nbsp;ArgumentsPanel(<a href="https://docs.oracle.com/javase/8/docs/api/java/lang/String.html?is-external=true" title="class or interface in java.lang">String</a>&nbsp;label,
+                      <a href="https://docs.oracle.com/javase/8/docs/api/java/awt/Color.html?is-external=true" title="class or interface in java.awt">Color</a>&nbsp;bkg,
+                      boolean&nbsp;enableUpDown,
+                      boolean&nbsp;standalone,
+                      <a href="../../../../../org/apache/jorphan/gui/ObjectTableModel.html" title="class in org.apache.jorphan.gui">ObjectTableModel</a>&nbsp;model,
+                      <a href="https://docs.oracle.com/javase/8/docs/api/java/util/function/Function.html?is-external=true" title="class or interface in java.util.function">Function</a>&lt;<a href="https://docs.oracle.com/javase/8/docs/api/java/lang/String.html?is-external=true" title="class or interface in java.lang">String</a>[],<a href="../../../../../org/apache/jmeter/config/Argument.html" title="class in org.apache.jmeter.config">Argument</a>&gt;&nbsp;argCreator)</pre>
+<div class="block">Create a new ArgumentsPanel with a border and color background</div>
+<dl>
+<dt><span class="paramLabel">Parameters:</span></dt>
+<dd><code>label</code> - text for label</dd>
+<dd><code>bkg</code> - background colour</dd>
+<dd><code>enableUpDown</code> - Add up/down buttons</dd>
+<dd><code>standalone</code> - is standalone</dd>
+<dd><code>model</code> - the table model to use</dd>
+<dd><code>argCreator</code> - function to create <a href="../../../../../org/apache/jmeter/config/Argument.html" title="class in org.apache.jmeter.config"><code>Argument</code></a>s from Strings taken from clipboard</dd>
+</dl>
+</li>
+</ul>
 <a name="ArgumentsPanel-java.lang.String-java.awt.Color-boolean-boolean-org.apache.jorphan.gui.ObjectTableModel-boolean-">
 <!--   -->
 </a>
-<ul class="blockListLast">
+<ul class="blockList">
 <li class="blockList">
 <h4>ArgumentsPanel</h4>
 <pre>public&nbsp;ArgumentsPanel(<a href="https://docs.oracle.com/javase/8/docs/api/java/lang/String.html?is-external=true" title="class or interface in java.lang">String</a>&nbsp;label,
@@ -759,6 +804,32 @@ implements <a href="https://docs.oracle.com/javase/8/docs/api/java/awt/event/Act
 <dd><code>standalone</code> - is standalone</dd>
 <dd><code>model</code> - the table model to use</dd>
 <dd><code>disableButtons</code> - Remove all buttons</dd>
+</dl>
+</li>
+</ul>
+<a name="ArgumentsPanel-java.lang.String-java.awt.Color-boolean-boolean-org.apache.jorphan.gui.ObjectTableModel-boolean-java.util.function.Function-">
+<!--   -->
+</a>
+<ul class="blockListLast">
+<li class="blockList">
+<h4>ArgumentsPanel</h4>
+<pre>public&nbsp;ArgumentsPanel(<a href="https://docs.oracle.com/javase/8/docs/api/java/lang/String.html?is-external=true" title="class or interface in java.lang">String</a>&nbsp;label,
+                      <a href="https://docs.oracle.com/javase/8/docs/api/java/awt/Color.html?is-external=true" title="class or interface in java.awt">Color</a>&nbsp;bkg,
+                      boolean&nbsp;enableUpDown,
+                      boolean&nbsp;standalone,
+                      <a href="../../../../../org/apache/jorphan/gui/ObjectTableModel.html" title="class in org.apache.jorphan.gui">ObjectTableModel</a>&nbsp;model,
+                      boolean&nbsp;disableButtons,
+                      <a href="https://docs.oracle.com/javase/8/docs/api/java/util/function/Function.html?is-external=true" title="class or interface in java.util.function">Function</a>&lt;<a href="https://docs.oracle.com/javase/8/docs/api/java/lang/String.html?is-external=true" title="class or interface in java.lang">String</a>[],<a href="../../../../../org/apache/jmeter/config/Argument.html" title="class in org.apache.jmeter.config">Argument</a>&gt;&nbsp;argCreator)</pre>
+<div class="block">Create a new ArgumentsPanel with a border and color background</div>
+<dl>
+<dt><span class="paramLabel">Parameters:</span></dt>
+<dd><code>label</code> - text for label</dd>
+<dd><code>bkg</code> - background colour</dd>
+<dd><code>enableUpDown</code> - Add up/down buttons</dd>
+<dd><code>standalone</code> - is standalone</dd>
+<dd><code>model</code> - the table model to use</dd>
+<dd><code>disableButtons</code> - Remove all buttons</dd>
+<dd><code>argCreator</code> - function to create <a href="../../../../../org/apache/jmeter/config/Argument.html" title="class in org.apache.jmeter.config"><code>Argument</code></a>s from Strings taken from clipboard</dd>
 </dl>
 </li>
 </ul>
@@ -1225,6 +1296,6 @@ implements <a href="https://docs.oracle.com/javase/8/docs/api/java/awt/event/Act
 <!--   -->
 </a></div>
 <!-- ======== END OF BOTTOM NAVBAR ======= -->
-<p class="legalCopy"><small>Copyright © 1998-2020 Apache Software Foundation. All Rights Reserved.</small></p>
+<p class="legalCopy"><small>Copyright © 1998-2022 Apache Software Foundation. All Rights Reserved.</small></p>
 </body>
 </html>

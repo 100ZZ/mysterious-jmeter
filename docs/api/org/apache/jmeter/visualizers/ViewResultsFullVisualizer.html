@@ -18,7 +18,7 @@
     catch(err) {
     }
 //-->
-var methods = {"i0":10,"i1":10,"i2":10,"i3":10,"i4":9,"i5":9,"i6":10,"i7":10};
+var methods = {"i0":10,"i1":10,"i2":10,"i3":10,"i4":9,"i5":9,"i6":10,"i7":10,"i8":9};
 var tabs = {65535:["t0","All Methods"],1:["t1","Static Methods"],2:["t2","Instance Methods"],8:["t4","Concrete Methods"]};
 var altColor = "altColor";
 var rowColor = "rowColor";
@@ -337,6 +337,10 @@ implements <a href="https://docs.oracle.com/javase/8/docs/api/java/awt/event/Act
 <td class="colFirst"><code>void</code></td>
 <td class="colLast"><code><span class="memberNameLink"><a href="../../../../org/apache/jmeter/visualizers/ViewResultsFullVisualizer.html#valueChanged-javax.swing.event.TreeSelectionEvent-">valueChanged</a></span>(<a href="https://docs.oracle.com/javase/8/docs/api/javax/swing/event/TreeSelectionEvent.html?is-external=true" title="class or interface in javax.swing.event">TreeSelectionEvent</a>&nbsp;e)</code></td>
 </tr>
+<tr id="i8" class="altColor">
+<td class="colFirst"><code>static <a href="https://docs.oracle.com/javase/8/docs/api/java/lang/String.html?is-external=true" title="class or interface in java.lang">String</a></code></td>
+<td class="colLast"><code><span class="memberNameLink"><a href="../../../../org/apache/jmeter/visualizers/ViewResultsFullVisualizer.html#wrapLongLines-java.lang.String-">wrapLongLines</a></span>(<a href="https://docs.oracle.com/javase/8/docs/api/java/lang/String.html?is-external=true" title="class or interface in java.lang">String</a>&nbsp;input)</code>&nbsp;</td>
+</tr>
 </table>
 <ul class="blockList">
 <li class="blockList"><a name="methods.inherited.from.class.org.apache.jmeter.visualizers.gui.AbstractVisualizer">
@@ -584,6 +588,17 @@ implements <a href="https://docs.oracle.com/javase/8/docs/api/java/awt/event/Act
 <pre>public static&nbsp;<a href="https://docs.oracle.com/javase/8/docs/api/java/lang/String.html?is-external=true" title="class or interface in java.lang">String</a>&nbsp;getResponseAsString(<a href="../../../../org/apache/jmeter/samplers/SampleResult.html" title="class in org.apache.jmeter.samplers">SampleResult</a>&nbsp;res)</pre>
 </li>
 </ul>
+<a name="wrapLongLines-java.lang.String-">
+<!--   -->
+</a>
+<ul class="blockList">
+<li class="blockList">
+<h4>wrapLongLines</h4>
+<pre>@API(status=INTERNAL,
+     since="5.5")
+public static&nbsp;<a href="https://docs.oracle.com/javase/8/docs/api/java/lang/String.html?is-external=true" title="class or interface in java.lang">String</a>&nbsp;wrapLongLines(<a href="https://docs.oracle.com/javase/8/docs/api/java/lang/String.html?is-external=true" title="class or interface in java.lang">String</a>&nbsp;input)</pre>
+</li>
+</ul>
 <a name="itemStateChanged-java.awt.event.ItemEvent-">
 <!--   -->
 </a>
@@ -667,6 +682,6 @@ implements <a href="https://docs.oracle.com/javase/8/docs/api/java/awt/event/Act
 <!--   -->
 </a></div>
 <!-- ======== END OF BOTTOM NAVBAR ======= -->
-<p class="legalCopy"><small>Copyright © 1998-2020 Apache Software Foundation. All Rights Reserved.</small></p>
+<p class="legalCopy"><small>Copyright © 1998-2022 Apache Software Foundation. All Rights Reserved.</small></p>
 </body>
 </html>
