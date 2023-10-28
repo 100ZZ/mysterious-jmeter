@@ -18,7 +18,7 @@
     catch(err) {
     }
 //-->
-var methods = {"i0":10,"i1":10,"i2":10,"i3":9,"i4":10,"i5":10,"i6":10,"i7":10,"i8":10,"i9":10,"i10":10,"i11":10,"i12":10};
+var methods = {"i0":10,"i1":10,"i2":10,"i3":9,"i4":10,"i5":10,"i6":10,"i7":10,"i8":10,"i9":10,"i10":10,"i11":10,"i12":10,"i13":10,"i14":10};
 var tabs = {65535:["t0","All Methods"],1:["t1","Static Methods"],2:["t2","Instance Methods"],8:["t4","Concrete Methods"]};
 var altColor = "altColor";
 var rowColor = "rowColor";
@@ -210,47 +210,55 @@ implements <a href="../../../../../../org/apache/jmeter/config/ConfigElement.htm
 <td class="colLast"><code><span class="memberNameLink"><a href="../../../../../../org/apache/jmeter/protocol/bolt/config/BoltConnectionElement.html#getDriver--">getDriver</a></span>()</code>&nbsp;</td>
 </tr>
 <tr id="i4" class="altColor">
-<td class="colFirst"><code><a href="https://docs.oracle.com/javase/8/docs/api/java/lang/String.html?is-external=true" title="class or interface in java.lang">String</a></code></td>
-<td class="colLast"><code><span class="memberNameLink"><a href="../../../../../../org/apache/jmeter/protocol/bolt/config/BoltConnectionElement.html#getPassword--">getPassword</a></span>()</code>&nbsp;</td>
+<td class="colFirst"><code>int</code></td>
+<td class="colLast"><code><span class="memberNameLink"><a href="../../../../../../org/apache/jmeter/protocol/bolt/config/BoltConnectionElement.html#getMaxConnectionPoolSize--">getMaxConnectionPoolSize</a></span>()</code>&nbsp;</td>
 </tr>
 <tr id="i5" class="rowColor">
 <td class="colFirst"><code><a href="https://docs.oracle.com/javase/8/docs/api/java/lang/String.html?is-external=true" title="class or interface in java.lang">String</a></code></td>
-<td class="colLast"><code><span class="memberNameLink"><a href="../../../../../../org/apache/jmeter/protocol/bolt/config/BoltConnectionElement.html#getUsername--">getUsername</a></span>()</code>&nbsp;</td>
+<td class="colLast"><code><span class="memberNameLink"><a href="../../../../../../org/apache/jmeter/protocol/bolt/config/BoltConnectionElement.html#getPassword--">getPassword</a></span>()</code>&nbsp;</td>
 </tr>
 <tr id="i6" class="altColor">
-<td class="colFirst"><code>void</code></td>
-<td class="colLast"><code><span class="memberNameLink"><a href="../../../../../../org/apache/jmeter/protocol/bolt/config/BoltConnectionElement.html#setBoltUri-java.lang.String-">setBoltUri</a></span>(<a href="https://docs.oracle.com/javase/8/docs/api/java/lang/String.html?is-external=true" title="class or interface in java.lang">String</a>&nbsp;boltUri)</code>&nbsp;</td>
+<td class="colFirst"><code><a href="https://docs.oracle.com/javase/8/docs/api/java/lang/String.html?is-external=true" title="class or interface in java.lang">String</a></code></td>
+<td class="colLast"><code><span class="memberNameLink"><a href="../../../../../../org/apache/jmeter/protocol/bolt/config/BoltConnectionElement.html#getUsername--">getUsername</a></span>()</code>&nbsp;</td>
 </tr>
 <tr id="i7" class="rowColor">
 <td class="colFirst"><code>void</code></td>
-<td class="colLast"><code><span class="memberNameLink"><a href="../../../../../../org/apache/jmeter/protocol/bolt/config/BoltConnectionElement.html#setPassword-java.lang.String-">setPassword</a></span>(<a href="https://docs.oracle.com/javase/8/docs/api/java/lang/String.html?is-external=true" title="class or interface in java.lang">String</a>&nbsp;password)</code>&nbsp;</td>
+<td class="colLast"><code><span class="memberNameLink"><a href="../../../../../../org/apache/jmeter/protocol/bolt/config/BoltConnectionElement.html#setBoltUri-java.lang.String-">setBoltUri</a></span>(<a href="https://docs.oracle.com/javase/8/docs/api/java/lang/String.html?is-external=true" title="class or interface in java.lang">String</a>&nbsp;boltUri)</code>&nbsp;</td>
 </tr>
 <tr id="i8" class="altColor">
 <td class="colFirst"><code>void</code></td>
-<td class="colLast"><code><span class="memberNameLink"><a href="../../../../../../org/apache/jmeter/protocol/bolt/config/BoltConnectionElement.html#setUsername-java.lang.String-">setUsername</a></span>(<a href="https://docs.oracle.com/javase/8/docs/api/java/lang/String.html?is-external=true" title="class or interface in java.lang">String</a>&nbsp;username)</code>&nbsp;</td>
+<td class="colLast"><code><span class="memberNameLink"><a href="../../../../../../org/apache/jmeter/protocol/bolt/config/BoltConnectionElement.html#setMaxConnectionPoolSize-int-">setMaxConnectionPoolSize</a></span>(int&nbsp;maxConnectionPoolSize)</code>&nbsp;</td>
 </tr>
 <tr id="i9" class="rowColor">
+<td class="colFirst"><code>void</code></td>
+<td class="colLast"><code><span class="memberNameLink"><a href="../../../../../../org/apache/jmeter/protocol/bolt/config/BoltConnectionElement.html#setPassword-java.lang.String-">setPassword</a></span>(<a href="https://docs.oracle.com/javase/8/docs/api/java/lang/String.html?is-external=true" title="class or interface in java.lang">String</a>&nbsp;password)</code>&nbsp;</td>
+</tr>
+<tr id="i10" class="altColor">
+<td class="colFirst"><code>void</code></td>
+<td class="colLast"><code><span class="memberNameLink"><a href="../../../../../../org/apache/jmeter/protocol/bolt/config/BoltConnectionElement.html#setUsername-java.lang.String-">setUsername</a></span>(<a href="https://docs.oracle.com/javase/8/docs/api/java/lang/String.html?is-external=true" title="class or interface in java.lang">String</a>&nbsp;username)</code>&nbsp;</td>
+</tr>
+<tr id="i11" class="rowColor">
 <td class="colFirst"><code>void</code></td>
 <td class="colLast"><code><span class="memberNameLink"><a href="../../../../../../org/apache/jmeter/protocol/bolt/config/BoltConnectionElement.html#testEnded--">testEnded</a></span>()</code>
 <div class="block">
  Called once for all threads after the end of a test.</div>
 </td>
 </tr>
-<tr id="i10" class="altColor">
+<tr id="i12" class="altColor">
 <td class="colFirst"><code>void</code></td>
 <td class="colLast"><code><span class="memberNameLink"><a href="../../../../../../org/apache/jmeter/protocol/bolt/config/BoltConnectionElement.html#testEnded-java.lang.String-">testEnded</a></span>(<a href="https://docs.oracle.com/javase/8/docs/api/java/lang/String.html?is-external=true" title="class or interface in java.lang">String</a>&nbsp;host)</code>
 <div class="block">
  Called once for all threads after the end of a test.</div>
 </td>
 </tr>
-<tr id="i11" class="rowColor">
+<tr id="i13" class="rowColor">
 <td class="colFirst"><code>void</code></td>
 <td class="colLast"><code><span class="memberNameLink"><a href="../../../../../../org/apache/jmeter/protocol/bolt/config/BoltConnectionElement.html#testStarted--">testStarted</a></span>()</code>
 <div class="block">
  Called just before the start of the test from the main engine thread.</div>
 </td>
 </tr>
-<tr id="i12" class="altColor">
+<tr id="i14" class="altColor">
 <td class="colFirst"><code>void</code></td>
 <td class="colLast"><code><span class="memberNameLink"><a href="../../../../../../org/apache/jmeter/protocol/bolt/config/BoltConnectionElement.html#testStarted-java.lang.String-">testStarted</a></span>(<a href="https://docs.oracle.com/javase/8/docs/api/java/lang/String.html?is-external=true" title="class or interface in java.lang">String</a>&nbsp;host)</code>
 <div class="block">
@@ -520,6 +528,24 @@ implements <a href="../../../../../../org/apache/jmeter/config/ConfigElement.htm
 <pre>public&nbsp;void&nbsp;setBoltUri(<a href="https://docs.oracle.com/javase/8/docs/api/java/lang/String.html?is-external=true" title="class or interface in java.lang">String</a>&nbsp;boltUri)</pre>
 </li>
 </ul>
+<a name="getMaxConnectionPoolSize--">
+<!--   -->
+</a>
+<ul class="blockList">
+<li class="blockList">
+<h4>getMaxConnectionPoolSize</h4>
+<pre>public&nbsp;int&nbsp;getMaxConnectionPoolSize()</pre>
+</li>
+</ul>
+<a name="setMaxConnectionPoolSize-int-">
+<!--   -->
+</a>
+<ul class="blockList">
+<li class="blockList">
+<h4>setMaxConnectionPoolSize</h4>
+<pre>public&nbsp;void&nbsp;setMaxConnectionPoolSize(int&nbsp;maxConnectionPoolSize)</pre>
+</li>
+</ul>
 <a name="getUsername--">
 <!--   -->
 </a>
@@ -634,6 +660,6 @@ implements <a href="../../../../../../org/apache/jmeter/config/ConfigElement.htm
 <!--   -->
 </a></div>
 <!-- ======== END OF BOTTOM NAVBAR ======= -->
-<p class="legalCopy"><small>Copyright © 1998-2020 Apache Software Foundation. All Rights Reserved.</small></p>
+<p class="legalCopy"><small>Copyright © 1998-2022 Apache Software Foundation. All Rights Reserved.</small></p>
 </body>
 </html>

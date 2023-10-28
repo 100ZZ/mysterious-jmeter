@@ -1135,7 +1135,7 @@
 <h3>Class <a href="org/apache/jmeter/config/gui/ArgumentsPanel.html" title="class in org.apache.jmeter.config.gui">org.apache.jmeter.config.gui.ArgumentsPanel</a> extends <a href="org/apache/jmeter/config/gui/AbstractConfigGui.html" title="class in org.apache.jmeter.config.gui">AbstractConfigGui</a> implements Serializable</h3>
 <dl class="nameValue">
 <dt>serialVersionUID:</dt>
-<dd>240L</dd>
+<dd>241L</dd>
 </dl>
 <ul class="blockList">
 <li class="blockList">
@@ -1191,10 +1191,14 @@
 <pre>boolean enableUpDown</pre>
 <div class="block">Enable Up and Down buttons</div>
 </li>
-<li class="blockListLast">
+<li class="blockList">
 <h4>disableButtons</h4>
 <pre>boolean disableButtons</pre>
 <div class="block">Disable buttons :Detail, Add, Add from Clipboard, Delete, Up and Down</div>
+</li>
+<li class="blockListLast">
+<h4>argCreator</h4>
+<pre><a href="https://docs.oracle.com/javase/8/docs/api/java/util/function/Function.html?is-external=true" title="class or interface in java.util.function">Function</a>&lt;<a href="https://docs.oracle.com/javase/8/docs/api/java/util/function/Function.html?is-external=true" title="class or interface in java.util.function">T</a>,<a href="https://docs.oracle.com/javase/8/docs/api/java/util/function/Function.html?is-external=true" title="class or interface in java.util.function">R</a>&gt; argCreator</pre>
 </li>
 </ul>
 </li>
@@ -1266,20 +1270,8 @@
 <h3>Serialized Fields</h3>
 <ul class="blockList">
 <li class="blockList">
-<h4>nameLabel</h4>
-<pre><a href="https://docs.oracle.com/javase/8/docs/api/javax/swing/JLabel.html?is-external=true" title="class or interface in javax.swing">JLabel</a> nameLabel</pre>
-</li>
-<li class="blockList">
-<h4>nameTF</h4>
-<pre><a href="https://docs.oracle.com/javase/8/docs/api/javax/swing/JTextField.html?is-external=true" title="class or interface in javax.swing">JTextField</a> nameTF</pre>
-</li>
-<li class="blockList">
-<h4>valueLabel</h4>
-<pre><a href="https://docs.oracle.com/javase/8/docs/api/javax/swing/JLabel.html?is-external=true" title="class or interface in javax.swing">JLabel</a> valueLabel</pre>
-</li>
-<li class="blockList">
-<h4>valueTA</h4>
-<pre><a href="org/apache/jmeter/gui/util/JSyntaxTextArea.html" title="class in org.apache.jmeter.gui.util">JSyntaxTextArea</a> valueTA</pre>
+<h4>dataComponents</h4>
+<pre><a href="https://docs.oracle.com/javase/8/docs/api/java/util/List.html?is-external=true" title="class or interface in java.util">List</a>&lt;<a href="https://docs.oracle.com/javase/8/docs/api/java/util/List.html?is-external=true" title="class or interface in java.util">E</a>&gt; dataComponents</pre>
 </li>
 <li class="blockList">
 <h4>nextButton</h4>
@@ -4323,6 +4315,10 @@
 <h4>password</h4>
 <pre><a href="https://docs.oracle.com/javase/8/docs/api/java/lang/String.html?is-external=true" title="class or interface in java.lang">String</a> password</pre>
 </li>
+<li class="blockList">
+<h4>maxConnectionPoolSize</h4>
+<pre>int maxConnectionPoolSize</pre>
+</li>
 <li class="blockListLast">
 <h4>driver</h4>
 <pre>org.neo4j.driver.Driver driver</pre>
@@ -4352,9 +4348,21 @@
 <h4>params</h4>
 <pre><a href="https://docs.oracle.com/javase/8/docs/api/java/lang/String.html?is-external=true" title="class or interface in java.lang">String</a> params</pre>
 </li>
-<li class="blockListLast">
+<li class="blockList">
+<h4>database</h4>
+<pre><a href="https://docs.oracle.com/javase/8/docs/api/java/lang/String.html?is-external=true" title="class or interface in java.lang">String</a> database</pre>
+</li>
+<li class="blockList">
+<h4>accessMode</h4>
+<pre><a href="https://docs.oracle.com/javase/8/docs/api/java/lang/String.html?is-external=true" title="class or interface in java.lang">String</a> accessMode</pre>
+</li>
+<li class="blockList">
 <h4>recordQueryResults</h4>
 <pre>boolean recordQueryResults</pre>
+</li>
+<li class="blockListLast">
+<h4>txTimeout</h4>
+<pre>int txTimeout</pre>
 </li>
 </ul>
 </li>
@@ -5423,10 +5431,14 @@
 <pre><a href="https://docs.oracle.com/javase/8/docs/api/javax/swing/JButton.html?is-external=true" title="class or interface in javax.swing">JButton</a> browse</pre>
 <div class="block">A button for browsing file system to set path of selected row in table.</div>
 </li>
-<li class="blockListLast">
+<li class="blockList">
 <h4>delete</h4>
 <pre><a href="https://docs.oracle.com/javase/8/docs/api/javax/swing/JButton.html?is-external=true" title="class or interface in javax.swing">JButton</a> delete</pre>
 <div class="block">A button for removing files from the table.</div>
+</li>
+<li class="blockListLast">
+<h4>showDetail</h4>
+<pre><a href="https://docs.oracle.com/javase/8/docs/api/javax/swing/AbstractButton.html?is-external=true" title="class or interface in javax.swing">AbstractButton</a> showDetail</pre>
 </li>
 </ul>
 </li>
@@ -5562,26 +5574,6 @@
 <li class="blockList">
 <h2 title="Package">Package&nbsp;org.apache.jmeter.protocol.http.parser</h2>
 <ul class="blockList">
-<li class="blockList"><a name="org.apache.jmeter.protocol.http.parser.CSSParseExceptionCallback">
-<!--   -->
-</a>
-<h3>Class <a href="org/apache/jmeter/protocol/http/parser/CSSParseExceptionCallback.html" title="class in org.apache.jmeter.protocol.http.parser">org.apache.jmeter.protocol.http.parser.CSSParseExceptionCallback</a> extends <a href="https://docs.oracle.com/javase/8/docs/api/java/lang/Object.html?is-external=true" title="class or interface in java.lang">Object</a> implements Serializable</h3>
-<dl class="nameValue">
-<dt>serialVersionUID:</dt>
-<dd>-4277276398858139449L</dd>
-</dl>
-<ul class="blockList">
-<li class="blockList">
-<h3>Serialized Fields</h3>
-<ul class="blockList">
-<li class="blockListLast">
-<h4>baseUrl</h4>
-<pre><a href="https://docs.oracle.com/javase/8/docs/api/java/net/URL.html?is-external=true" title="class or interface in java.net">URL</a> baseUrl</pre>
-</li>
-</ul>
-</li>
-</ul>
-</li>
 <li class="blockList"><a name="org.apache.jmeter.protocol.http.parser.HTMLParseException">
 <!--   -->
 </a>
@@ -6148,6 +6140,14 @@
 <pre>boolean PTRNFILTER</pre>
 </li>
 <li class="blockList">
+<h4>excludePatternStrings</h4>
+<pre><a href="https://docs.oracle.com/javase/8/docs/api/java/util/List.html?is-external=true" title="class or interface in java.util">List</a>&lt;<a href="https://docs.oracle.com/javase/8/docs/api/java/util/List.html?is-external=true" title="class or interface in java.util">E</a>&gt; excludePatternStrings</pre>
+</li>
+<li class="blockList">
+<h4>includePatternStrings</h4>
+<pre><a href="https://docs.oracle.com/javase/8/docs/api/java/util/List.html?is-external=true" title="class or interface in java.util">List</a>&lt;<a href="https://docs.oracle.com/javase/8/docs/api/java/util/List.html?is-external=true" title="class or interface in java.util">E</a>&gt; includePatternStrings</pre>
+</li>
+<li class="blockList">
 <h4>EXCPATTERNS</h4>
 <pre><a href="https://docs.oracle.com/javase/8/docs/api/java/util/ArrayList.html?is-external=true" title="class or interface in java.util">ArrayList</a>&lt;<a href="https://docs.oracle.com/javase/8/docs/api/java/util/ArrayList.html?is-external=true" title="class or interface in java.util">E</a>&gt; EXCPATTERNS</pre>
 </li>
@@ -6647,7 +6647,7 @@
 <h3>Class <a href="org/apache/jmeter/protocol/jdbc/config/DataSourceElement.html" title="class in org.apache.jmeter.protocol.jdbc.config">org.apache.jmeter.protocol.jdbc.config.DataSourceElement</a> extends <a href="org/apache/jmeter/testelement/AbstractTestElement.html" title="class in org.apache.jmeter.testelement">AbstractTestElement</a> implements Serializable</h3>
 <dl class="nameValue">
 <dt>serialVersionUID:</dt>
-<dd>234L</dd>
+<dd>235L</dd>
 </dl>
 </li>
 </ul>
@@ -10380,20 +10380,11 @@
 <li class="blockList">
 <h3>Serialized Fields</h3>
 <ul class="blockList">
-<li class="blockList">
+<li class="blockListLast">
 <h4>previousTime</h4>
 <pre>long previousTime</pre>
 <div class="block">Target time for the start of the next request. The delay provided by the
  timer will be calculated so that the next request happens at this time.</div>
-</li>
-<li class="blockList">
-<h4>mode</h4>
-<pre><a href="org/apache/jmeter/timers/ConstantThroughputTimer.Mode.html" title="enum in org.apache.jmeter.timers">ConstantThroughputTimer.Mode</a> mode</pre>
-</li>
-<li class="blockListLast">
-<h4>throughput</h4>
-<pre>double throughput</pre>
-<div class="block">Desired throughput, in samples per minute.</div>
 </li>
 </ul>
 </li>
@@ -13014,6 +13005,6 @@
 <!--   -->
 </a></div>
 <!-- ======== END OF BOTTOM NAVBAR ======= -->
-<p class="legalCopy"><small>Copyright © 1998-2020 Apache Software Foundation. All Rights Reserved.</small></p>
+<p class="legalCopy"><small>Copyright © 1998-2022 Apache Software Foundation. All Rights Reserved.</small></p>
 </body>
 </html>

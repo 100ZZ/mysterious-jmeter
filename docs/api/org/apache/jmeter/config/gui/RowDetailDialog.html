@@ -18,7 +18,7 @@
     catch(err) {
     }
 //-->
-var methods = {"i0":10,"i1":10,"i2":10,"i3":10,"i4":10,"i5":10};
+var methods = {"i0":10,"i1":10,"i2":10,"i3":10,"i4":10,"i5":10,"i6":10};
 var tabs = {65535:["t0","All Methods"],2:["t2","Instance Methods"],8:["t4","Concrete Methods"]};
 var altColor = "altColor";
 var rowColor = "rowColor";
@@ -134,13 +134,13 @@ var activeTableTab = "activeTableTab";
 <li class="blockList">
 <dl>
 <dt>All Implemented Interfaces:</dt>
-<dd><a href="https://docs.oracle.com/javase/8/docs/api/java/awt/event/ActionListener.html?is-external=true" title="class or interface in java.awt.event">ActionListener</a>, <a href="https://docs.oracle.com/javase/8/docs/api/java/awt/image/ImageObserver.html?is-external=true" title="class or interface in java.awt.image">ImageObserver</a>, <a href="https://docs.oracle.com/javase/8/docs/api/java/awt/MenuContainer.html?is-external=true" title="class or interface in java.awt">MenuContainer</a>, <a href="https://docs.oracle.com/javase/8/docs/api/java/io/Serializable.html?is-external=true" title="class or interface in java.io">Serializable</a>, <a href="https://docs.oracle.com/javase/8/docs/api/java/util/EventListener.html?is-external=true" title="class or interface in java.util">EventListener</a>, <a href="https://docs.oracle.com/javase/8/docs/api/javax/accessibility/Accessible.html?is-external=true" title="class or interface in javax.accessibility">Accessible</a>, <a href="https://docs.oracle.com/javase/8/docs/api/javax/swing/event/DocumentListener.html?is-external=true" title="class or interface in javax.swing.event">DocumentListener</a>, <a href="https://docs.oracle.com/javase/8/docs/api/javax/swing/RootPaneContainer.html?is-external=true" title="class or interface in javax.swing">RootPaneContainer</a>, <a href="https://docs.oracle.com/javase/8/docs/api/javax/swing/WindowConstants.html?is-external=true" title="class or interface in javax.swing">WindowConstants</a></dd>
+<dd><a href="https://docs.oracle.com/javase/8/docs/api/java/awt/event/ActionListener.html?is-external=true" title="class or interface in java.awt.event">ActionListener</a>, <a href="https://docs.oracle.com/javase/8/docs/api/java/awt/event/ItemListener.html?is-external=true" title="class or interface in java.awt.event">ItemListener</a>, <a href="https://docs.oracle.com/javase/8/docs/api/java/awt/image/ImageObserver.html?is-external=true" title="class or interface in java.awt.image">ImageObserver</a>, <a href="https://docs.oracle.com/javase/8/docs/api/java/awt/MenuContainer.html?is-external=true" title="class or interface in java.awt">MenuContainer</a>, <a href="https://docs.oracle.com/javase/8/docs/api/java/io/Serializable.html?is-external=true" title="class or interface in java.io">Serializable</a>, <a href="https://docs.oracle.com/javase/8/docs/api/java/util/EventListener.html?is-external=true" title="class or interface in java.util">EventListener</a>, <a href="https://docs.oracle.com/javase/8/docs/api/javax/accessibility/Accessible.html?is-external=true" title="class or interface in javax.accessibility">Accessible</a>, <a href="https://docs.oracle.com/javase/8/docs/api/javax/swing/event/DocumentListener.html?is-external=true" title="class or interface in javax.swing.event">DocumentListener</a>, <a href="https://docs.oracle.com/javase/8/docs/api/javax/swing/RootPaneContainer.html?is-external=true" title="class or interface in javax.swing">RootPaneContainer</a>, <a href="https://docs.oracle.com/javase/8/docs/api/javax/swing/WindowConstants.html?is-external=true" title="class or interface in javax.swing">WindowConstants</a></dd>
 </dl>
 <hr>
 <br>
 <pre>public class <span class="typeNameLabel">RowDetailDialog</span>
 extends <a href="https://docs.oracle.com/javase/8/docs/api/javax/swing/JDialog.html?is-external=true" title="class or interface in javax.swing">JDialog</a>
-implements <a href="https://docs.oracle.com/javase/8/docs/api/java/awt/event/ActionListener.html?is-external=true" title="class or interface in java.awt.event">ActionListener</a>, <a href="https://docs.oracle.com/javase/8/docs/api/javax/swing/event/DocumentListener.html?is-external=true" title="class or interface in javax.swing.event">DocumentListener</a></pre>
+implements <a href="https://docs.oracle.com/javase/8/docs/api/java/awt/event/ActionListener.html?is-external=true" title="class or interface in java.awt.event">ActionListener</a>, <a href="https://docs.oracle.com/javase/8/docs/api/javax/swing/event/DocumentListener.html?is-external=true" title="class or interface in javax.swing.event">DocumentListener</a>, <a href="https://docs.oracle.com/javase/8/docs/api/java/awt/event/ItemListener.html?is-external=true" title="class or interface in java.awt.event">ItemListener</a></pre>
 <div class="block">Show detail of a Row</div>
 <dl>
 <dt><span class="seeLabel">See Also:</span></dt>
@@ -296,6 +296,10 @@ implements <a href="https://docs.oracle.com/javase/8/docs/api/java/awt/event/Act
 <td class="colLast"><code><span class="memberNameLink"><a href="../../../../../org/apache/jmeter/config/gui/RowDetailDialog.html#insertUpdate-javax.swing.event.DocumentEvent-">insertUpdate</a></span>(<a href="https://docs.oracle.com/javase/8/docs/api/javax/swing/event/DocumentEvent.html?is-external=true" title="class or interface in javax.swing.event">DocumentEvent</a>&nbsp;e)</code>&nbsp;</td>
 </tr>
 <tr id="i5" class="rowColor">
+<td class="colFirst"><code>void</code></td>
+<td class="colLast"><code><span class="memberNameLink"><a href="../../../../../org/apache/jmeter/config/gui/RowDetailDialog.html#itemStateChanged-java.awt.event.ItemEvent-">itemStateChanged</a></span>(<a href="https://docs.oracle.com/javase/8/docs/api/java/awt/event/ItemEvent.html?is-external=true" title="class or interface in java.awt.event">ItemEvent</a>&nbsp;e)</code>&nbsp;</td>
+</tr>
+<tr id="i6" class="altColor">
 <td class="colFirst"><code>void</code></td>
 <td class="colLast"><code><span class="memberNameLink"><a href="../../../../../org/apache/jmeter/config/gui/RowDetailDialog.html#removeUpdate-javax.swing.event.DocumentEvent-">removeUpdate</a></span>(<a href="https://docs.oracle.com/javase/8/docs/api/javax/swing/event/DocumentEvent.html?is-external=true" title="class or interface in javax.swing.event">DocumentEvent</a>&nbsp;e)</code>&nbsp;</td>
 </tr>
@@ -455,13 +459,26 @@ implements <a href="https://docs.oracle.com/javase/8/docs/api/java/awt/event/Act
 <a name="changedUpdate-javax.swing.event.DocumentEvent-">
 <!--   -->
 </a>
-<ul class="blockListLast">
+<ul class="blockList">
 <li class="blockList">
 <h4>changedUpdate</h4>
 <pre>public&nbsp;void&nbsp;changedUpdate(<a href="https://docs.oracle.com/javase/8/docs/api/javax/swing/event/DocumentEvent.html?is-external=true" title="class or interface in javax.swing.event">DocumentEvent</a>&nbsp;e)</pre>
 <dl>
 <dt><span class="overrideSpecifyLabel">Specified by:</span></dt>
 <dd><code><a href="https://docs.oracle.com/javase/8/docs/api/javax/swing/event/DocumentListener.html?is-external=true#changedUpdate-javax.swing.event.DocumentEvent-" title="class or interface in javax.swing.event">changedUpdate</a></code>&nbsp;in interface&nbsp;<code><a href="https://docs.oracle.com/javase/8/docs/api/javax/swing/event/DocumentListener.html?is-external=true" title="class or interface in javax.swing.event">DocumentListener</a></code></dd>
+</dl>
+</li>
+</ul>
+<a name="itemStateChanged-java.awt.event.ItemEvent-">
+<!--   -->
+</a>
+<ul class="blockListLast">
+<li class="blockList">
+<h4>itemStateChanged</h4>
+<pre>public&nbsp;void&nbsp;itemStateChanged(<a href="https://docs.oracle.com/javase/8/docs/api/java/awt/event/ItemEvent.html?is-external=true" title="class or interface in java.awt.event">ItemEvent</a>&nbsp;e)</pre>
+<dl>
+<dt><span class="overrideSpecifyLabel">Specified by:</span></dt>
+<dd><code><a href="https://docs.oracle.com/javase/8/docs/api/java/awt/event/ItemListener.html?is-external=true#itemStateChanged-java.awt.event.ItemEvent-" title="class or interface in java.awt.event">itemStateChanged</a></code>&nbsp;in interface&nbsp;<code><a href="https://docs.oracle.com/javase/8/docs/api/java/awt/event/ItemListener.html?is-external=true" title="class or interface in java.awt.event">ItemListener</a></code></dd>
 </dl>
 </li>
 </ul>
@@ -534,6 +551,6 @@ implements <a href="https://docs.oracle.com/javase/8/docs/api/java/awt/event/Act
 <!--   -->
 </a></div>
 <!-- ======== END OF BOTTOM NAVBAR ======= -->
-<p class="legalCopy"><small>Copyright © 1998-2020 Apache Software Foundation. All Rights Reserved.</small></p>
+<p class="legalCopy"><small>Copyright © 1998-2022 Apache Software Foundation. All Rights Reserved.</small></p>
 </body>
 </html>

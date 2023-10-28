@@ -348,13 +348,13 @@
 </td>
 </tr>
 <tr class="altColor">
-<td class="colOne"><a href="org/apache/jmeter/protocol/http/sampler/HTTPSamplerBase.html#isMonitor--">org.apache.jmeter.protocol.http.sampler.HTTPSamplerBase.isMonitor()</a>
-<div class="block"><span class="deprecationComment">since 3.2 always returns false</span></div>
+<td class="colOne"><a href="org/apache/jmeter/protocol/http/sampler/HTTPAbstractImpl.html#isMonitor--">org.apache.jmeter.protocol.http.sampler.HTTPAbstractImpl.isMonitor()</a>
+<div class="block"><span class="deprecationComment">since 3.2 always return false</span></div>
 </td>
 </tr>
 <tr class="rowColor">
-<td class="colOne"><a href="org/apache/jmeter/protocol/http/sampler/HTTPAbstractImpl.html#isMonitor--">org.apache.jmeter.protocol.http.sampler.HTTPAbstractImpl.isMonitor()</a>
-<div class="block"><span class="deprecationComment">since 3.2 always return false</span></div>
+<td class="colOne"><a href="org/apache/jmeter/protocol/http/sampler/HTTPSamplerBase.html#isMonitor--">org.apache.jmeter.protocol.http.sampler.HTTPSamplerBase.isMonitor()</a>
+<div class="block"><span class="deprecationComment">since 3.2 always returns false</span></div>
 </td>
 </tr>
 <tr class="altColor">
@@ -383,18 +383,18 @@
 </td>
 </tr>
 <tr class="rowColor">
-<td class="colOne"><a href="org/apache/jmeter/protocol/tcp/sampler/BinaryTCPClientImpl.html#read-java.io.InputStream-">org.apache.jmeter.protocol.tcp.sampler.BinaryTCPClientImpl.read(InputStream)</a></td>
-</tr>
-<tr class="altColor">
-<td class="colOne"><a href="org/apache/jmeter/protocol/tcp/sampler/TCPClientImpl.html#read-java.io.InputStream-">org.apache.jmeter.protocol.tcp.sampler.TCPClientImpl.read(InputStream)</a></td>
-</tr>
-<tr class="rowColor">
 <td class="colOne"><a href="org/apache/jmeter/protocol/tcp/sampler/TCPClient.html#read-java.io.InputStream-">org.apache.jmeter.protocol.tcp.sampler.TCPClient.read(InputStream)</a>
 <div class="block"><span class="deprecationComment">since 3.3, implement <a href="org/apache/jmeter/protocol/tcp/sampler/TCPClient.html#read-java.io.InputStream-org.apache.jmeter.samplers.SampleResult-"><code>TCPClient.read(InputStream, SampleResult)</code></a> instead, will be removed in future version</span></div>
 </td>
 </tr>
 <tr class="altColor">
+<td class="colOne"><a href="org/apache/jmeter/protocol/tcp/sampler/BinaryTCPClientImpl.html#read-java.io.InputStream-">org.apache.jmeter.protocol.tcp.sampler.BinaryTCPClientImpl.read(InputStream)</a></td>
+</tr>
+<tr class="rowColor">
 <td class="colOne"><a href="org/apache/jmeter/protocol/tcp/sampler/LengthPrefixedBinaryTCPClientImpl.html#read-java.io.InputStream-">org.apache.jmeter.protocol.tcp.sampler.LengthPrefixedBinaryTCPClientImpl.read(InputStream)</a></td>
+</tr>
+<tr class="altColor">
+<td class="colOne"><a href="org/apache/jmeter/protocol/tcp/sampler/TCPClientImpl.html#read-java.io.InputStream-">org.apache.jmeter.protocol.tcp.sampler.TCPClientImpl.read(InputStream)</a></td>
 </tr>
 <tr class="rowColor">
 <td class="colOne"><a href="org/apache/jmeter/protocol/http/sampler/HTTPAbstractImpl.html#readResponse-org.apache.jmeter.samplers.SampleResult-java.io.BufferedInputStream-int-">org.apache.jmeter.protocol.http.sampler.HTTPAbstractImpl.readResponse(SampleResult, BufferedInputStream, int)</a>
@@ -438,23 +438,21 @@
 <td class="colOne"><a href="org/apache/jmeter/timers/poissonarrivals/PreciseThroughputTimer.html#setExactLimit-int-">org.apache.jmeter.timers.poissonarrivals.PreciseThroughputTimer.setExactLimit(int)</a></td>
 </tr>
 <tr class="altColor">
+<td class="colOne"><a href="org/apache/jmeter/threads/JMeterThread.html#setInitialContext-org.apache.jmeter.threads.JMeterContext-">org.apache.jmeter.threads.JMeterThread.setInitialContext(JMeterContext)</a></td>
+</tr>
+<tr class="rowColor">
 <td class="colOne"><a href="org/apache/jorphan/logging/LoggingManager.html#setLoggingLevels-java.util.Properties-">org.apache.jorphan.logging.LoggingManager.setLoggingLevels(Properties)</a>
 <div class="block"><span class="deprecationComment">since 3.2, use SLF4J for logging</span></div>
 </td>
 </tr>
-<tr class="rowColor">
+<tr class="altColor">
 <td class="colOne"><a href="org/apache/log/Logger.html#setLogTargets-org.apache.log.LogTarget:A-">org.apache.log.Logger.setLogTargets(LogTarget[])</a>
 <div class="block"><span class="deprecationComment">Will be dropped in 3.3</span></div>
 </td>
 </tr>
-<tr class="altColor">
+<tr class="rowColor">
 <td class="colOne"><a href="org/apache/jmeter/samplers/SampleResult.html#setMonitor-boolean-">org.apache.jmeter.samplers.SampleResult.setMonitor(boolean)</a>
 <div class="block"><span class="deprecationComment">since 3.2 NOOP</span></div>
-</td>
-</tr>
-<tr class="rowColor">
-<td class="colOne"><a href="org/apache/jorphan/logging/LoggingManager.html#setPriority-org.apache.log.Priority-">org.apache.jorphan.logging.LoggingManager.setPriority(Priority)</a>
-<div class="block"><span class="deprecationComment">since 3.2, use SLF4J for logging</span></div>
 </td>
 </tr>
 <tr class="altColor">
@@ -463,92 +461,97 @@
 </td>
 </tr>
 <tr class="rowColor">
+<td class="colOne"><a href="org/apache/jorphan/logging/LoggingManager.html#setPriority-org.apache.log.Priority-">org.apache.jorphan.logging.LoggingManager.setPriority(Priority)</a>
+<div class="block"><span class="deprecationComment">since 3.2, use SLF4J for logging</span></div>
+</td>
+</tr>
+<tr class="altColor">
 <td class="colOne"><a href="org/apache/jorphan/logging/LoggingManager.html#setPriority-org.apache.log.Priority-java.lang.String-">org.apache.jorphan.logging.LoggingManager.setPriority(Priority, String)</a>
 <div class="block"><span class="deprecationComment">since 3.2, use SLF4J for logging</span></div>
 </td>
 </tr>
-<tr class="altColor">
+<tr class="rowColor">
 <td class="colOne"><a href="org/apache/jorphan/logging/LoggingManager.html#setPriority-java.lang.String-">org.apache.jorphan.logging.LoggingManager.setPriority(String)</a>
 <div class="block"><span class="deprecationComment">since 3.2, use SLF4J for logging</span></div>
 </td>
 </tr>
-<tr class="rowColor">
+<tr class="altColor">
 <td class="colOne"><a href="org/apache/jorphan/logging/LoggingManager.html#setPriority-java.lang.String-java.lang.String-">org.apache.jorphan.logging.LoggingManager.setPriority(String, String)</a>
 <div class="block"><span class="deprecationComment">since 3.2, use SLF4J for logging</span></div>
 </td>
 </tr>
-<tr class="altColor">
+<tr class="rowColor">
 <td class="colOne"><a href="org/apache/jorphan/logging/LoggingManager.html#setPriorityFullName-java.lang.String-java.lang.String-">org.apache.jorphan.logging.LoggingManager.setPriorityFullName(String, String)</a>
 <div class="block"><span class="deprecationComment">since 3.2, use SLF4J for logging</span></div>
 </td>
 </tr>
-<tr class="rowColor">
+<tr class="altColor">
 <td class="colOne"><a href="org/apache/jmeter/samplers/SampleResult.html#setResponseData-java.lang.String-">org.apache.jmeter.samplers.SampleResult.setResponseData(String)</a>
 <div class="block"><span class="deprecationComment">- only intended for use from BeanShell code</span></div>
 </td>
 </tr>
-<tr class="altColor">
+<tr class="rowColor">
 <td class="colOne"><a href="org/apache/jmeter/threads/JMeterContext.html#setRestartNextLoop-boolean-">org.apache.jmeter.threads.JMeterContext.setRestartNextLoop(boolean)</a>
 <div class="block"><span class="deprecationComment">use <a href="org/apache/jmeter/threads/JMeterContext.html#setStartNextThreadLoop-boolean-"><code>JMeterContext.setStartNextThreadLoop(boolean)</code></a></span></div>
 </td>
 </tr>
-<tr class="rowColor">
+<tr class="altColor">
 <td class="colOne"><a href="org/apache/jmeter/samplers/SampleResult.html#setStartNextThreadLoop-boolean-">org.apache.jmeter.samplers.SampleResult.setStartNextThreadLoop(boolean)</a>
 <div class="block"><span class="deprecationComment">use SampleResult#setTestLogicalAction(TestLogicalAction)</span></div>
 </td>
 </tr>
-<tr class="altColor">
+<tr class="rowColor">
 <td class="colOne"><a href="org/apache/jmeter/threads/JMeterContext.html#setStartNextThreadLoop-boolean-">org.apache.jmeter.threads.JMeterContext.setStartNextThreadLoop(boolean)</a>
 <div class="block"><span class="deprecationComment">use <a href="org/apache/jmeter/threads/JMeterContext.html#setTestLogicalAction-org.apache.jmeter.threads.JMeterContext.TestLogicalAction-"><code>JMeterContext.setTestLogicalAction(TestLogicalAction)</code></a></span></div>
 </td>
 </tr>
-<tr class="rowColor">
+<tr class="altColor">
 <td class="colOne"><a href="org/apache/jorphan/logging/LoggingManager.html#setTarget-org.apache.log.LogTarget-java.lang.String-">org.apache.jorphan.logging.LoggingManager.setTarget(LogTarget, String)</a>
 <div class="block"><span class="deprecationComment">since 3.2, use SLF4J for logging</span></div>
 </td>
 </tr>
-<tr class="altColor">
+<tr class="rowColor">
 <td class="colOne"><a href="org/apache/jmeter/gui/util/HeaderAsPropertyRendererWrapper.html#setupDefaultRenderer-javax.swing.JTable-java.lang.Object:A:A-">org.apache.jmeter.gui.util.HeaderAsPropertyRendererWrapper.setupDefaultRenderer(JTable, Object[][])</a>
 <div class="block"><span class="deprecationComment">don't use <code>columnsMsgParameters</code> as they are not moved when the columns
  of the corresponding tables object model are moved</span></div>
 </td>
 </tr>
-<tr class="rowColor">
+<tr class="altColor">
 <td class="colOne"><a href="org/apache/jmeter/visualizers/SummaryReport.html#testFunctors--">org.apache.jmeter.visualizers.SummaryReport.testFunctors()</a>
 <div class="block"><span class="deprecationComment">- only for use in testing</span></div>
 </td>
 </tr>
-<tr class="altColor">
+<tr class="rowColor">
 <td class="colOne"><a href="org/apache/jmeter/visualizers/StatVisualizer.html#testFunctors--">org.apache.jmeter.visualizers.StatVisualizer.testFunctors()</a>
 <div class="block"><span class="deprecationComment">- only for use in testing</span></div>
 </td>
 </tr>
-<tr class="rowColor">
+<tr class="altColor">
 <td class="colOne"><a href="org/apache/log/Logger.html#unsetLogTargets--">org.apache.log.Logger.unsetLogTargets()</a>
 <div class="block"><span class="deprecationComment">Will be dropped in 3.3</span></div>
 </td>
 </tr>
-<tr class="altColor">
+<tr class="rowColor">
 <td class="colOne"><a href="org/apache/log/Logger.html#unsetLogTargets-boolean-">org.apache.log.Logger.unsetLogTargets(boolean)</a>
 <div class="block"><span class="deprecationComment">Will be dropped in 3.3</span></div>
 </td>
 </tr>
-<tr class="rowColor">
+<tr class="altColor">
 <td class="colOne"><a href="org/apache/log/Logger.html#unsetPriority--">org.apache.log.Logger.unsetPriority()</a>
 <div class="block"><span class="deprecationComment">Will be dropped in 3.3</span></div>
 </td>
 </tr>
-<tr class="altColor">
+<tr class="rowColor">
 <td class="colOne"><a href="org/apache/log/Logger.html#unsetPriority-boolean-">org.apache.log.Logger.unsetPriority(boolean)</a>
 <div class="block"><span class="deprecationComment">Will be dropped in 3.3</span></div>
 </td>
 </tr>
-<tr class="rowColor">
+<tr class="altColor">
 <td class="colOne"><a href="org/apache/jmeter/util/JMeterUtils.html#unsplit-java.lang.Object:A-java.lang.Object-">org.apache.jmeter.util.JMeterUtils.unsplit(Object[], Object)</a>
 <div class="block"><span class="deprecationComment">use <a href="org/apache/jorphan/util/JOrphanUtils.html#unsplit-java.lang.Object:A-java.lang.Object-"><code>JOrphanUtils.unsplit(Object[], Object)</code></a></span></div>
 </td>
 </tr>
-<tr class="altColor">
+<tr class="rowColor">
 <td class="colOne"><a href="org/apache/jmeter/visualizers/GraphVisualizer.html#updateGui-org.apache.jmeter.visualizers.Sample-">org.apache.jmeter.visualizers.GraphVisualizer.updateGui(Sample)</a>
 <div class="block"><span class="deprecationComment">use <a href="org/apache/jmeter/visualizers/GraphVisualizer.html#add-org.apache.jmeter.samplers.SampleResult-"><code>GraphVisualizer.add(SampleResult)</code></a> instead</span></div>
 </td>
@@ -824,6 +827,6 @@
 <!--   -->
 </a></div>
 <!-- ======== END OF BOTTOM NAVBAR ======= -->
-<p class="legalCopy"><small>Copyright © 1998-2020 Apache Software Foundation. All Rights Reserved.</small></p>
+<p class="legalCopy"><small>Copyright © 1998-2022 Apache Software Foundation. All Rights Reserved.</small></p>
 </body>
 </html>

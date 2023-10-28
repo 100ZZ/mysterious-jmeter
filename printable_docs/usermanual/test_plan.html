@@ -117,20 +117,14 @@ of a test, and short enough that the last threads start running before
 the first ones finish (unless one wants that to happen).
 </p><p>
 Start with Ramp-up = number of threads and adjust up or down as needed.
-</p><p>By default, the thread group is configured to loop once through its elements.</p><p>Thread Group also provides a <b>scheduler</b>.
+</p><p>By default, the thread group is configured to loop once through its elements.</p><p>Thread Group also allows to specify <b>Thread lifetime</b>.
     Click the checkbox at the bottom of the Thread Group panel to enable/disable extra fields
-     in which you can enter the duration of test, the startup delay, the start and end times of the run.
+     in which you can enter the duration of test and the startup delay
      You can configure <tt class="code">Duration (seconds)</tt> and <tt class="code">Startup Delay (seconds)</tt> to control
      the duration of each thread group and the after how much seconds it starts.
      When the test is started, JMeter will wait <tt class="code">Startup Delay (seconds)</tt> before starting the Threads
      of the Thread Group and run for the configured <tt class="code">Duration (seconds)</tt> time.
-     Note those 2 options override the <tt class="code">Start time</tt> and <tt class="code">End time</tt>.
-
-     <p>Alternatively (although not recommended as not very flexible) you can use the two other fields <tt class="code">Start time</tt> and <tt class="code">End time</tt>.
-     When the test is started, JMeter will wait if necessary until the start-time has been reached.
-     At the end of each cycle, JMeter checks if the end-time has been reached, and if so, the run is stopped,
-     otherwise the test is allowed to continue until the iteration limit is reached.</p>
-     </p></blockquote>
+</p></blockquote>
 </td></tr>
 <tr><td><br></td></tr>
 </table>
@@ -647,7 +641,7 @@ jmeter … -Jhost=www3.example.org -Jloops=13
 <tr>
 <td>
 <font color="#525D76" size="-1"><em>
-Copyright &copy; 1999-2020, Apache Software Foundation
+Copyright &copy; 1999-2022, Apache Software Foundation
 </em></font>
 </td>
 <td align="right">
