@@ -16,6 +16,7 @@
 >- 后端服务：https://github.com/100ZZ/mysterious
 >- 前端服务：https://github.com/100ZZ/mysterious-web
 >- JMeter工具包：https://github.com/100ZZ/mysterious-jmeter
+>- 离线镜像：https://pan.baidu.com/s/128k3uiUvaKf0vgbD-BO28Q?pwd=e9qy 提取码: e9qy
 >- 其它组件：MySQL，Redis，Nginx
 
 ## 操作视频
@@ -24,32 +25,26 @@
 
 ## 安装部署
 ### Docker-Compose部署方式（Master节点）
-_容器化部署比较简单，但Master节点需要部署一堆Docker的组件，会有一些资源占用的损耗，本身是性能测试，所以如果是对压测数据要求比较高，也可以二进制单节点部署_
+_容器化部署通过docker-compose方式_
 <br>
+1. 平台部署（默认是X86_64环境，如果是ARM环境替换成docker-compose-arm.yml和VERSION-arm.env启动）
+>- git clone https://github.com/100ZZ/mysterious.git /root/mysterious
+>- cd /root/mysterious/docker
+>- ./init.sh
+>- git clone https://github.com/100ZZ/mysterious-jmeter.git /opt/mysterious/mysterious-jmeter
+>- cd /opt/mysterious
+>- docker-compose --env-file VERSION.env up -d
+2. 访问平台
+>- http://xx.xx.xx.xx:1234
+>- 注册个用户，登录即可玩耍
+### 二进制部署方式（Master节点）
+_下面以CentOS7为例介绍下安装步骤_
 1. 前端部署
 >- git clone https://github.com/100ZZ/mysterious-web.git
 >- cd mysterious-web
 >- npm install
 >- npm run build (生成dist)
 
-2. 平台部署
->- git clone https://github.com/100ZZ/mysterious.git
->- cd mysterious/docker
->- ./init.sh (如果有报错，看shell脚本每一步操作，来定位)
->- cp -r [上一步前端目录]/dist /opt/mysterious/nginx/html/
->- docker-compose --env-file VERSION.env up -d
->- docker-compose ps查看，有mysterious，mysterious-mysql，mysterious-nginx，mysterious-redis四个容器
-3. 访问平台
->- http://xx.xx.xx.xx:1234
->- 注册个用户，登录即可玩耍
-### 二进制部署方式（Master节点）
-_比较推荐弄一个高配额的单节点来部署平台进行压测，避免了Docker和分布式交互的开销，下面以CentOS7为例介绍下安装步骤_
-1. 前端部署
->- git clone https://github.com/100ZZ/mysterious-web.git
->- cd mysterious-web
->- npm install
->- npm run build (生成dist)
-   
 2. 安装nginx，mysql，redis
 > nginx
 >- 1234.conf和9998.conf复制到/etc/nginx/conf.d下（根据系统实际情况），并修改下，比如mysterious-nginx改成localhost，mysterious改成最后前端页面访问的IP地址
@@ -65,7 +60,7 @@ _比较推荐弄一个高配额的单节点来部署平台进行压测，避免�
 >- 没啥好说的，起来就行了，不用设密码
 >- redis.conf可自行下载，或者docker目录下有
    
-3. 平台部署
+3. 后端部署
 >- git clone https://github.com/100ZZ/mysterious.git
 >- 修改application.properties，mysterious-mysql和mysterious-redis都改成localhost
 >- mvn -f pom.xml clean install package -Dmaven.test.skip=true
