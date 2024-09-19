@@ -1,5 +1,5 @@
 # Mysterious
-> 分布式压测平台后端服务，前端Vue3+TypeScript，后端SpringBoot服务，压测引擎JMeter5.5，基础是JMeter的分布式压测
+> 分布式压测平台，前端Vue3+TypeScript，后端SpringBoot-2.3.12，压测引擎JMeter-5.5，支持JMeter的分布式压测，管理，执行，报告，日志等。
 
 ## 经验总结
 >- [1. JMeter分布式压测](https://lihuia.com/jmeter%e5%88%86%e5%b8%83%e5%bc%8f%e5%8e%8b%e6%b5%8b/)
@@ -15,7 +15,7 @@
 ## 平台依赖
 >- 后端服务：https://github.com/100ZZ/mysterious
 >- 前端服务：https://github.com/100ZZ/mysterious-web
->- 压测工具：https://github.com/100ZZ/mysterious-jmeter
+>- 压测引擎：https://github.com/100ZZ/mysterious-jmeter
 >- 离线镜像：https://pan.baidu.com/s/128k3uiUvaKf0vgbD-BO28Q?pwd=e9qy 提取码: e9qy
 >- 其它组件：MySQL，Redis，Nginx
 >- 其它依赖：JDK1.8+(JMeter依赖)，Docker，Docker-Compose
@@ -27,9 +27,9 @@
 
 ## 安装部署
 ### Docker-Compose部署方式(推荐，一键部署)
-_容器化部署通过docker-compose方式，如果拉镜像不畅，可直接TAG附件或者上面网盘下离线镜像，目前离线镜像都是v1.0版本_
+_容器化部署通过docker-compose方式，如果拉镜像不畅，可直接上面网盘下最新v1.5版本容器镜像_
 <br>
-1. 平台部署（默认是X86_64环境，如果是ARM环境替换成docker-compose-arm.yml和arm.env启动）
+1. 平台部署（默认是X86_64环境，如果是ARM环境替换成docker-compose-arm.yml和arm64.env启动）
 >- git clone https://github.com/100ZZ/mysterious.git /root/mysterious
 >- cd /root/mysterious/docker
 >- ./init.sh
@@ -94,5 +94,5 @@ _如果需要分布式压测，找到和Master节点网络互通的Slave节点�
 _整个安装部署包括平台的前后端服务和JMeter工具包目录_
 >- 如果是单节点压测，只需要在一个Master节点上安装部署压测平台和Jmeter工具包，通过平台来调用Jmeter来执行压测用例，并返回压测结果
 >- 如果是分布式压测，除了上面Master节点安装部署外，还要在Slave节点上安装Jmeter工具包，启动jmeter-server进程，大致数据流如下
-   ![分布式压测](https://lihuia.com/wp-content/uploads/2020/12/UntitledImage.png)
+   ![fenbu](https://github.com/user-attachments/assets/b0ed73af-f839-4485-a40e-b487da475eb0)
    <br>
