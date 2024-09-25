@@ -32,7 +32,7 @@ https://github.com/user-attachments/assets/b951548a-7d16-4f0e-9d3e-7d3f1172a85f
 
 ## 安装部署
 ### Docker-Compose部署方式(推荐，一键部署)
-_容器化部署通过docker-compose方式，如果在线拉镜像不畅，可在下面网盘里下最新v1.5版本离线容器镜像_
+_容器化部署通过docker-compose方式，如果在线拉镜像不畅，可从下面网盘里下最新v1.5版本离线容器镜像_
 >- 离线镜像：https://pan.baidu.com/s/128k3uiUvaKf0vgbD-BO28Q?pwd=e9qy 提取码: e9qy
 <br>
 
