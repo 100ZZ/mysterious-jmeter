@@ -1,290 +1,109 @@
-<h1 align="center"><img src="https://jmeter.apache.org/images/logo.svg" alt="Apache JMeter logo" /></h1>
-
-An Open Source Java application designed to measure performance and load test applications.
-
-By The Apache Software Foundation
-
-[![Build Status](https://api.travis-ci.com/apache/jmeter.svg?branch=master)](https://travis-ci.com/apache/jmeter/)
-[![codecov](https://codecov.io/gh/apache/jmeter/branch/master/graph/badge.svg)](https://codecov.io/gh/apache/jmeter)
-[![License](https://img.shields.io/:license-apache-brightgreen.svg)](https://www.apache.org/licenses/LICENSE-2.0.html)
-[![Stack Overflow](https://img.shields.io/:stack%20overflow-jmeter-brightgreen.svg)](https://stackoverflow.com/questions/tagged/jmeter)
-[![Maven Central](https://maven-badges.herokuapp.com/maven-central/org.apache.jmeter/ApacheJMeter/badge.svg)](https://maven-badges.herokuapp.com/maven-central/org.apache.jmeter/ApacheJMeter)
-[![Javadocs](https://www.javadoc.io/badge/org.apache.jmeter/ApacheJMeter_core.svg)](https://www.javadoc.io/doc/org.apache.jmeter/ApacheJMeter_core)
-[![Twitter](https://img.shields.io/twitter/url/https/github.com/apache/jmeter.svg?style=social)](https://twitter.com/intent/tweet?text=Powerful%20load%20testing%20with%20Apache%20JMeter:&url=https://jmeter.apache.org)
-
-## What Is It?
-
-Apache JMeter can measure performance and load test static and dynamic web applications.
-
-It can be used to simulate a heavy load on a server, group of servers,
-network or object to test its strength or to analyze overall performance under different load types.
-
-![JMeter screen](https://raw.githubusercontent.com/apache/jmeter/master/xdocs/images/screenshots/jmeter_screen.png)
-
-## Features
-
-Complete portability and 100% Java.
-
-Multi-threading allows concurrent sampling by many threads and
-simultaneous sampling of different functions by separate thread groups.
-
-### Protocols
-
-Ability to load and performance test many applications/server/protocol types:
-
-- Web - HTTP, HTTPS (Java, NodeJS, PHP, ASP.NET,...)
-- SOAP / REST Webservices
-- FTP
-- Database via JDBC
-- LDAP
-- Message-oriented Middleware (MOM) via JMS
-- Mail - SMTP(S), POP3(S) and IMAP(S)
-- Native commands or shell scripts
-- TCP
-- Java Objects
-
-### IDE
-
-Fully featured Test IDE that allows fast Test Plan **recording**
- (from Browsers or native applications), **building** and **debugging**.
-
-### Command Line
-
-[Command-line mode (Non GUI / headless mode)](https://jmeter.apache.org/usermanual/get-started.html#non_gui)
-to load test from any Java compatible OS (Linux, Windows, Mac OSX, ...)
-
-### Reporting
-
-A complete and ready to present [dynamic HTML report](https://jmeter.apache.org/usermanual/generating-dashboard.html)
-
-![Dashboard screenshot](https://raw.githubusercontent.com/apache/jmeter/master/xdocs/images/screenshots/dashboard/response_time_percentiles_over_time.png)
-
-[Live reporting](https://jmeter.apache.org/usermanual/realtime-results.html)
-into 3rd party databases like InfluxDB or Graphite
-
-![Live report](https://raw.githubusercontent.com/apache/jmeter/master/xdocs/images/screenshots/grafana_dashboard.png)
-
-### Correlation
-
-Easy correlation through ability to extract data from most popular response formats,
-[HTML](https://jmeter.apache.org/usermanual/component_reference.html#CSS/JQuery_Extractor),
-[JSON](https://jmeter.apache.org/usermanual/component_reference.html#JSON_Extractor),
-[XML](https://jmeter.apache.org/usermanual/component_reference.html#XPath_Extractor) or
-[any textual format](https://jmeter.apache.org/usermanual/component_reference.html#Regular_Expression_Extractor)
-
-### Highly Extensible Core
-
-- Pluggable Samplers allow unlimited testing capabilities.
-- **Scriptable Samplers** (JSR223-compatible languages like Groovy).
-- Several load statistics can be chosen with **pluggable tiers**.
-- Data analysis and **visualization plugins** allow great extensibility and personalization.
-- Functions can be used to provide dynamic input to a test or provide data manipulation.
-- Easy Continuous Integration via 3rd party Open Source libraries for Maven, Gradle and Jenkins.
-
-## The Latest Version
-
-Details of the latest version can be found on the
-[JMeter Apache Project web site](https://jmeter.apache.org/)
-
-## Requirements
-
-The following requirements exist for running Apache JMeter:
-
-- Java Interpreter:
-
-  A fully compliant Java 8 Runtime Environment is required
-  for Apache JMeter to execute. A JDK with `keytool` utility is better suited
-  for Recording HTTPS websites.
-
-- Optional jars:
-
-  Some jars are not included with JMeter.
-  If required, these should be downloaded and placed in the lib directory
-  - JDBC - available from the database supplier
-  - JMS - available from the JMS provider
-  - [Bouncy Castle](https://www.bouncycastle.org/) -
-  only needed for SMIME Assertion
-
-- Java Compiler (*OPTIONAL*):
-
-  A Java compiler is not needed since the distribution includes a
-  precompiled Java binary archive.
-  > **Note** that a compiler is required to build plugins for Apache JMeter.
-
-## Installation Instructions
-
-> **Note** that spaces in directory names can cause problems.
-
-- Release builds
-
-  Unpack the binary archive into a suitable directory structure.
-
-## Running JMeter
-
-1. Change to the `bin` directory
-2. Run the `jmeter` (Un\*x) or `jmeter.bat` (Windows) file.
-
-### Windows
-
-For Windows, there are also some other scripts which you can drag-and-drop
-a JMX file onto:
-
-- `jmeter-n.cmd` - runs the file as a non-GUI test
-- `jmeter-n-r.cmd` - runs the file as a non-GUI remote (client-server) test
-- `jmeter-t.cmd` - loads the file ready to run it as a GUI test
-
-## Documentation
-
-The documentation available as of the date of this release is
-also included, in HTML format, in the [printable_docs](printable_docs) directory,
-and it may be browsed starting from the file called [index.html](printable_docs/index.html).
-
-## Reporting a bug/enhancement
-
-See [Issue Tracking](https://jmeter.apache.org/issues.html).
-
-## Build instructions
-
-### Release builds
-
-Unpack the source archive into a suitable directory structure.
-Most of the 3rd party library files can be extracted from the binary archive
-by unpacking it into the same directory structure.
-
-Any optional jars (see above) should be placed in `lib/opt` and/or `lib`.
-
-Jars in `lib/opt` will be used for building JMeter and running the unit tests,
-but won't be used at run-time.
-
-_This is useful for testing what happens if the optional jars are not
-downloaded by other JMeter users._
-
-If you are behind a proxy, you can set a few build properties in
-`~/.gradle/gradle.properties` for Gradle to use the proxy:
-
-```properties
-systemProp.http.proxyHost=proxy.example.invalid
-systemProp.http.proxyPort=8080
-systemProp.http.proxyUser=your_user_name
-systemProp.http.proxyPassword=your_password
-systemProp.https.proxyHost=proxy.example.invalid
-systemProp.https.proxyPort=8080
-systemProp.https.proxyUser=your_user_name
-systemProp.https.proxyPassword=your_password
-```
-
-### Test builds
-
-JMeter is built using Gradle, and it uses [Gradle's Toolchains for JVM projects](https://docs.gradle.org/current/userguide/toolchains.html)
-for provisioning JDKs. It means the code would search for the needed JDKs locally, or download them
-if they are not found.
-
-By default, the code would use JDK 17 for build purposes, however it would set the target release to 8,
-so the resulting artifacts would be compatible with Java 8.
-
-The following command builds and tests JMeter:
-
-```sh
-./gradlew build
-```
-
-If you want to use a custom JDK for building you can set `-PjdkBuildVersion=11`,
-and you can select `-PjdkTestVersion=21` if you want to use a different JDK for testing.
-
-You can list the available build parameters by executing
-
-```sh
-./gradlew parameters
-```
-
-If the system does not have a GUI display then:
-
-```sh
-./gradlew build -Djava.awt.headless=true
-```
-
-The output artifacts (jars, reports) are placed in the `build` folder.
-For instance, binary artifacts can be found under `src/dist/build/distributions`.
-
-The following command would compile the application and enable you to run `jmeter`
-from the `bin` directory.
-
-> **Note** that it completely refreshes `lib/` contents,
-so it would remove custom plugins should you have them installed to `lib/`. However, it would keep `lib/ext/` plugins intact.
-
-```sh
-./gradlew createDist
-```
-
-Alternatively, you could get Gradle to start the GUI:
-
-```sh
-./gradlew runGui
-```
-
-## Developer Information
-
-Building and contributing is explained in details at
-[building JMeter](https://jmeter.apache.org/building.html)
-and [CONTRIBUTING.md](CONTRIBUTING.md). More information on the tasks available for
-building JMeter with Gradle is available in [gradle.md](gradle.md).
-
-The code can be obtained from:
-
-- https://github.com/apache/jmeter
-- https://gitbox.apache.org/repos/asf/jmeter.git
-
-## Licensing and Legal Information
-
-For legal and licensing information, please see the following files:
-
-- [LICENSE](LICENSE)
-- [NOTICE](NOTICE)
-
-## Cryptographic Software Notice
-
-This distribution may include software that has been designed for use
-with cryptographic software. The country in which you currently reside
-may have restrictions on the import, possession, use, and/or re-export
-to another country, of encryption software. BEFORE using any encryption
-software, please check your country's laws, regulations and policies
-concerning the import, possession, or use, and re-export of encryption
-software, to see if this is permitted. See <https://www.wassenaar.org/>
-for more information.
-
-The U.S. Government Department of Commerce, Bureau of Industry and
-Security (BIS), has classified this software as Export Commodity
-Control Number (ECCN) 5D002.C.1, which includes information security
-software using or performing cryptographic functions with asymmetric
-algorithms. The form and manner of this Apache Software Foundation
-distribution makes it eligible for export under the License Exception
-ENC Technology Software Unrestricted (TSU) exception (see the BIS
-Export Administration Regulations, Section 740.13) for both object
-code and source code.
-
-The following provides more details on the included software that
-may be subject to export controls on cryptographic software:
-
-Apache JMeter interfaces with the
-Java Secure Socket Extension (JSSE) API to provide
-
-- HTTPS support
-
-Apache JMeter interfaces (via Apache HttpClient4) with the
-Java Cryptography Extension (JCE) API to provide
-
-- NTLM authentication
-
-Apache JMeter does not include any implementation of JSSE or JCE.
-
-## Thanks
-
-**Thank you for using Apache JMeter.**
-
-### Third party notices
-
-* Notice for mxparser:
-
-  >  This product includes software developed by the Indiana
-  >  University Extreme! Lab.  For further information please visit
-  >  http://www.extreme.indiana.edu/
+# Mysterious
+分布式压测平台，前端Vue3+TypeScript，后端SpringBoot-2.3.12，压测引擎JMeter-5.6.3，支持JMeter的分布式压测，管理，执行，报告，日志等。因为设计，开发，测试都是自己，一些功能优化需求也是根据自己的使用来改进，目前主要优先考虑正确性和实用性，未来通过大模型生成JMX脚本也在考虑当中。
+
+https://github.com/user-attachments/assets/d31927d3-7ca5-436b-8685-c9f5c9dbb492
+
+## 经验总结
+- [1. JMeter分布式压测](https://lihuia.com/jmeter%e5%88%86%e5%b8%83%e5%bc%8f%e5%8e%8b%e6%b5%8b/)
+- [2. JMeter有关JAR依赖异常问题](https://lihuia.com/jmeter%e6%9c%89%e5%85%b3jar%e4%be%9d%e8%b5%96%e7%9a%84%e9%97%ae%e9%a2%98/)
+- [3. 吐血定位端口映射影响JMeter分布式压测的异常问题](https://lihuia.com/%e5%90%90%e8%a1%80%e5%ae%9a%e4%bd%8d%e7%ab%af%e5%8f%a3%e6%98%a0%e5%b0%84%e5%bd%b1%e5%93%8djmeter%e5%88%86%e5%b8%83%e5%bc%8f%e5%8e%8b%e6%b5%8b%e7%9a%84%e5%bc%82%e5%b8%b8%e9%97%ae%e9%a2%98/)
+- [4. JMeter分布式压测启动流程简述](https://lihuia.com/jmeter%e5%88%86%e5%b8%83%e5%bc%8f%e5%8e%8b%e6%b5%8b%e5%90%af%e5%8a%a8%e6%b5%81%e7%a8%8b%e7%ae%80%e8%bf%b0/)
+- [5. JMeter分布式平台化相关的异常问题汇总](https://lihuia.com/jmeter%e5%88%86%e5%b8%83%e5%bc%8f%e7%9b%b8%e5%85%b3%e7%9a%84%e5%bc%82%e5%b8%b8%e9%97%ae%e9%a2%98%e6%b1%87%e6%80%bb/)
+- [6. 分布式压测平台响应时间的损耗分析](https://lihuia.com/%e5%8e%8b%e6%b5%8b%e5%b9%b3%e5%8f%b0%e5%93%8d%e5%ba%94%e6%97%b6%e9%97%b4%e7%9a%84%e6%8d%9f%e8%80%97%e5%88%86%e6%9e%90/)
+- [7. 平台化：JMeter脚本在线编辑初步实现](https://lihuia.com/%e5%b9%b3%e5%8f%b0%e5%8c%96%ef%bc%9ajmeter%e8%84%9a%e6%9c%ac%e5%9c%a8%e7%ba%bf%e7%bc%96%e8%be%91%e5%88%9d%e6%ad%a5%e5%ae%9e%e7%8e%b0/)
+- [8. Grafana和InfluxDB帮JMeter提升性能监控的美感](https://lihuia.com/grafana%e5%92%8cinfluxdb%e5%b8%aejmeter%e5%b1%95%e7%a4%ba%e7%be%8e%e8%a7%82%e7%9a%84%e6%80%a7%e8%83%bd%e7%9b%91%e6%8e%a7/)
+
+
+## 平台模块
+- 后端服务：https://github.com/100ZZ/mysterious
+- 前端服务：https://github.com/100ZZ/mysterious-web
+- 压测引擎：https://github.com/100ZZ/mysterious-jmeter
+- 其它组件：MySQL，Redis，Nginx
+
+## 操作视频
+- 安装部署：https://www.bilibili.com/video/BV1by421i7cn
+- 使用说明：https://www.bilibili.com/video/BV15j421Z7mY
+- 平台试用：http://101.43.119.176:1234 (demo/demo或者新注册个用户)
+
+## 测试流程
+- 如果是单节点压测，只需要在一个Master节点上安装部署平台和Jmeter工具包，通过平台来调用Jmeter来执行压测用例，并返回压测结果
+- 如果是分布式压测，除了Master节点安装部署平台和Jmeter工具包外，还要在Slave节点上部署Jmeter工具包，启动jmeter-server服务
+![fenbu](https://github.com/user-attachments/assets/b0ed73af-f839-4485-a40e-b487da475eb0)
+
+- 用例详情
+  - 上传模式：上传本地JMX，CSV，JAR，平台处理好依赖，本地能够运行的，平台命令行直接执行，日志，报告
+  - 在线模式：主要是JMX脚本，尽可能完成一些简单常用的脚本编写，毕竟JMeter各种插件众多，不可能都兼容
+
+## 安装部署
+### Docker-Compose部署方式(推荐，一键部署)
+容器化部署通过docker-compose方式，如果在线拉镜像不畅，可在下面网盘里下最新版本离线容器镜像
+>- 离线镜像：https://pan.baidu.com/s/128k3uiUvaKf0vgbD-BO28Q?pwd=e9qy 提取码: e9qy
+<br>
+
+1. 平台部署
+>- git clone https://github.com/100ZZ/mysterious.git
+>- cd mysterious/docker
+>- sh init.sh amd64|arm64 (平台架构：x86传amd64，arm传arm64)
+>- cd mysterious
+>- git clone https://github.com/100ZZ/mysterious-jmeter.git
+>- docker-compose up -d
+2. 访问平台
+>- 平台访问：http://xx.xx.xx.xx:1234
+>- Swagger文档：http://xx.xx.xx.xx:4321/swagger-ui.html
+3. 运行配置
+>- 内存配置：docker-compose.yml里后端服务预分配了1G内存，可根据需求调整
+>- 引擎内存：mysterious-jmeter/bin/jmeter里配置HEAP内存2g-4g-512m，可根据需求自行调整
+>- 配置管理：MASTER_HOST_PORT修改为本地IP:PORT，作为压测报告预览的路径前缀，修改完重启容器
+4. 版本更新
+>- 后端更新：更新mysterious容器(最新的docker/amd64.env覆盖.env)，重新拉镜像起容器
+>- 前端更新：更新dist目录(docker/dist有最新版本目录)，覆盖/opt/mysterious/nginx/html/dist
+>- 库表变更：检查数据库脚本(docker/init.sql)，执行变更部分的sql即可
+
+### 二进制部署方式
+下面以CentOS7为例介绍下安装步骤
+1. 前端部署
+>- git clone https://github.com/100ZZ/mysterious-web.git
+>- cd mysterious-web
+>- npm install
+>- npm run build (生成dist，如果不想build，mysterious的docker里有最新的dist)
+2. 安装nginx，mysql，redis，jdk8+
+> nginx
+>- 1234.conf和9998.conf复制到/etc/nginx/conf.d下（根据系统实际情况），并修改下，比如mysterious-nginx改成localhost，mysterious改成最后前端页面访问的IP地址
+>- mkdir -p /usr/share/nginx/html/
+>- cp -r [上一步前端目录]/dist /usr/share/nginx/html/
+
+> mysql
+>- mysql> ALTER USER 'root'@'localhost' IDENTIFIED BY 'Test@123456';
+>- mysql> use mysql;
+>- mysql> update user set host='%' where user='root';
+
+> redis
+>- 没啥好说的，起来就行了，不用设密码
+>- redis.conf可自行下载，或者docker目录下有
+
+3. 后端部署
+>- git clone https://github.com/100ZZ/mysterious.git
+>- mvn -f pom.xml clean install package -Dmaven.test.skip=true
+>- mkdir -p /opt/mysterious/mysterious-data
+>- mkdir -p /opt/mysterious/running
+>- cp docker/mysterious.jar /opt/mysterious/running/
+>- cp docker/service.sh /opt/mysterious/running/
+>- cd /opt/mysterious
+>- git clone https://github.com/100ZZ/mysterious-jmeter.git
+>- sh /opt/mysterious/running/service.sh restart
+4. 访问平台
+>- 平台访问：http://xx.xx.xx.xx:1234
+>- Swagger文档：http://xx.xx.xx.xx:4321/swagger-ui.html
+
+### Slave节点部署(分布式压测，Slave节点作为压力机，启动Jmeter-Server服务)
+>- 无特殊情况，推荐高配置单节点(平台管理+压力机)部署来进行压测，因为分布式压测交互也有开销
+>- 无Slave节点启用，就只有Master单节点(平台管理+压力机)进行压测
+>- 只要有Slave节点启用，就会作为压力机进行分布式压测，Master节点作为Client
+
+如果需要分布式压测，找到和Master节点网络互通的Slave节点进行部署，最好是局域网，否则网络开销太大；无论Master节点是二进制还是Docker-Compose部署，Slave节点部署方式都如下
+>- mkdir /opt/mysterious
+>- cd /opt/mysterious
+>- git clone https://github.com/100ZZ/mysterious-jmeter.git
+>- 如果之前有一些测试用例，可以页面节点管理，先点击一下节点同步，会将Master节点用例数据都同步到Slave节点，然后启用Slave节点即可
+>- 只要有Slave节点启用，压测都会是分布式压测，如果全都禁用，压测就只是Master单节点压测
+>- 具体Slave节点的目录结构都是可配置的，具体可以参考配置管理页面
