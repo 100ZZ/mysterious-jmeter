@@ -26,13 +26,15 @@ https://github.com/user-attachments/assets/d31927d3-7ca5-436b-8685-c9f5c9dbb492
 - 平台试用：http://101.43.119.176:1234 (demo/demo或者新注册个用户)
 
 ## 测试流程
-- 如果是单节点压测，只需要在一个Master节点上安装部署平台和Jmeter工具包，通过平台来调用Jmeter来执行压测用例，并返回压测结果
-- 如果是分布式压测，除了Master节点安装部署平台和Jmeter工具包外，还要在Slave节点上部署Jmeter工具包，启动jmeter-server服务
-![fenbu](https://github.com/user-attachments/assets/b0ed73af-f839-4485-a40e-b487da475eb0)
-
 - 用例详情
-  - 上传模式：上传本地JMX，CSV，JAR，平台处理好依赖，本地能够运行的，平台命令行直接执行，日志，报告
-  - 在线模式：主要是JMX脚本，尽可能完成一些简单常用的脚本编写，毕竟JMeter各种插件众多，不可能都兼容
+  - 上传模式：上传本地JMX，CSV，JAR，平台处理依赖，本地只要能运行，平台命令行直接执行，日志，报告
+  - 在线模式：主要是JMX脚本，完成一些简单的脚本进行在线编写，毕竟JMeter各种插件众多，不可能都兼容
+  - 智能生成：后续考虑结合AI大模型，提供可视化prompt输入框，按要求生成JMX脚本
+- 压测模式
+  - 如果是单节点压测，只需要在一个Master节点上安装部署平台和Jmeter工具包，通过平台来调用Jmeter来执行压测用例，并返回压测结果
+  - 如果是分布式压测，除了Master节点安装部署平台和Jmeter工具包外，还要在Slave节点上部署Jmeter工具包，启动jmeter-server服务
+  ![fenbu](https://github.com/user-attachments/assets/b0ed73af-f839-4485-a40e-b487da475eb0)
+
 
 ## 安装部署
 ### Docker-Compose部署方式(推荐，一键部署)
