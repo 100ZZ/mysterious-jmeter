@@ -179,10 +179,9 @@ Check that patch does not break JUnit tests by running:
 </tr>
 </table>
 </div>
-<h3>Create a PR using GIT</h3><ul>
-    <li>Open a bugzilla issue, see <a target="_blank" href="issues.html">Issues page</a></li>
+<h3>Create a pull request using Git</h3><ul>
     <li>Fork <a href="https://www.github.com/apache/jmeter">Apache JMeter mirror</a></li>
-    <li>Clone your forked repository locally : <div align="left">
+    <li>Clone your forked repository locally: <div align="left">
 <table cellspacing="4" cellpadding="0" border="0">
 <tr>
 <td bgcolor="#023264" width="1" height="1"><img src="/images/void.gif" width="1" height="1" vspace="0" hspace="0" border="0"/></td>
@@ -191,7 +190,7 @@ Check that patch does not break JUnit tests by running:
 </tr>
 <tr>
 <td bgcolor="#023264" width="1"><img src="/images/void.gif" width="1" height="1" vspace="0" hspace="0" border="0"/></td>
-<td bgcolor="#ffffff"><pre>git clone https://github.com/yourid/jmeter/</pre></td>
+<td bgcolor="#ffffff"><pre>git clone https://github.com/yourid/jmeter.git</pre></td>
 <td bgcolor="#023264" width="1"><img src="/images/void.gif" width="1" height="1" vspace="0" hspace="0" border="0"/></td>
 </tr>
 <tr>
@@ -202,7 +201,7 @@ Check that patch does not break JUnit tests by running:
 </table>
 </div>
 </li>
-    <li>Create a branch using for example bugzilla id: <div align="left">
+    <li>Create a branch using for example issue id: <div align="left">
 <table cellspacing="4" cellpadding="0" border="0">
 <tr>
 <td bgcolor="#023264" width="1" height="1"><img src="/images/void.gif" width="1" height="1" vspace="0" hspace="0" border="0"/></td>
@@ -211,7 +210,66 @@ Check that patch does not break JUnit tests by running:
 </tr>
 <tr>
 <td bgcolor="#023264" width="1"><img src="/images/void.gif" width="1" height="1" vspace="0" hspace="0" border="0"/></td>
-<td bgcolor="#ffffff"><pre>git branch BUGID</pre></td>
+<td bgcolor="#ffffff"><pre>git branch gh123-thread-group-typo</pre></td>
+<td bgcolor="#023264" width="1"><img src="/images/void.gif" width="1" height="1" vspace="0" hspace="0" border="0"/></td>
+</tr>
+<tr>
+<td bgcolor="#023264" width="1" height="1"><img src="/images/void.gif" width="1" height="1" vspace="0" hspace="0" border="0"/></td>
+<td bgcolor="#023264" height="1"><img src="/images/void.gif" width="1" height="1" vspace="0" hspace="0" border="0"/></td>
+<td bgcolor="#023264" width="1" height="1"><img src="/images/void.gif" width="1" height="1" vspace="0" hspace="0" border="0"/></td>
+</tr>
+</table>
+</div>
+
+      (please refrain from using <div align="left">
+<table cellspacing="4" cellpadding="0" border="0">
+<tr>
+<td bgcolor="#023264" width="1" height="1"><img src="/images/void.gif" width="1" height="1" vspace="0" hspace="0" border="0"/></td>
+<td bgcolor="#023264" height="1"><img src="/images/void.gif" width="1" height="1" vspace="0" hspace="0" border="0"/></td>
+<td bgcolor="#023264" width="1" height="1"><img src="/images/void.gif" width="1" height="1" vspace="0" hspace="0" border="0"/></td>
+</tr>
+<tr>
+<td bgcolor="#023264" width="1"><img src="/images/void.gif" width="1" height="1" vspace="0" hspace="0" border="0"/></td>
+<td bgcolor="#ffffff"><pre>master</pre></td>
+<td bgcolor="#023264" width="1"><img src="/images/void.gif" width="1" height="1" vspace="0" hspace="0" border="0"/></td>
+</tr>
+<tr>
+<td bgcolor="#023264" width="1" height="1"><img src="/images/void.gif" width="1" height="1" vspace="0" hspace="0" border="0"/></td>
+<td bgcolor="#023264" height="1"><img src="/images/void.gif" width="1" height="1" vspace="0" hspace="0" border="0"/></td>
+<td bgcolor="#023264" width="1" height="1"><img src="/images/void.gif" width="1" height="1" vspace="0" hspace="0" border="0"/></td>
+</tr>
+</table>
+</div>
+ and <div align="left">
+<table cellspacing="4" cellpadding="0" border="0">
+<tr>
+<td bgcolor="#023264" width="1" height="1"><img src="/images/void.gif" width="1" height="1" vspace="0" hspace="0" border="0"/></td>
+<td bgcolor="#023264" height="1"><img src="/images/void.gif" width="1" height="1" vspace="0" hspace="0" border="0"/></td>
+<td bgcolor="#023264" width="1" height="1"><img src="/images/void.gif" width="1" height="1" vspace="0" hspace="0" border="0"/></td>
+</tr>
+<tr>
+<td bgcolor="#023264" width="1"><img src="/images/void.gif" width="1" height="1" vspace="0" hspace="0" border="0"/></td>
+<td bgcolor="#ffffff"><pre>main</pre></td>
+<td bgcolor="#023264" width="1"><img src="/images/void.gif" width="1" height="1" vspace="0" hspace="0" border="0"/></td>
+</tr>
+<tr>
+<td bgcolor="#023264" width="1" height="1"><img src="/images/void.gif" width="1" height="1" vspace="0" hspace="0" border="0"/></td>
+<td bgcolor="#023264" height="1"><img src="/images/void.gif" width="1" height="1" vspace="0" hspace="0" border="0"/></td>
+<td bgcolor="#023264" width="1" height="1"><img src="/images/void.gif" width="1" height="1" vspace="0" hspace="0" border="0"/></td>
+</tr>
+</table>
+</div>
+ branches for pull request)</li>
+    <li>Checkout the new branch: <div align="left">
+<table cellspacing="4" cellpadding="0" border="0">
+<tr>
+<td bgcolor="#023264" width="1" height="1"><img src="/images/void.gif" width="1" height="1" vspace="0" hspace="0" border="0"/></td>
+<td bgcolor="#023264" height="1"><img src="/images/void.gif" width="1" height="1" vspace="0" hspace="0" border="0"/></td>
+<td bgcolor="#023264" width="1" height="1"><img src="/images/void.gif" width="1" height="1" vspace="0" hspace="0" border="0"/></td>
+</tr>
+<tr>
+<td bgcolor="#023264" width="1"><img src="/images/void.gif" width="1" height="1" vspace="0" hspace="0" border="0"/></td>
+<td bgcolor="#ffffff"><pre>git checkout gh123-thread-group-typo</pre></td>
 <td bgcolor="#023264" width="1"><img src="/images/void.gif" width="1" height="1" vspace="0" hspace="0" border="0"/></td>
 </tr>
 <tr>
@@ -222,27 +280,7 @@ Check that patch does not break JUnit tests by running:
 </table>
 </div>
 </li>
-    <li>Checkout the new branch : <div align="left">
-<table cellspacing="4" cellpadding="0" border="0">
-<tr>
-<td bgcolor="#023264" width="1" height="1"><img src="/images/void.gif" width="1" height="1" vspace="0" hspace="0" border="0"/></td>
-<td bgcolor="#023264" height="1"><img src="/images/void.gif" width="1" height="1" vspace="0" hspace="0" border="0"/></td>
-<td bgcolor="#023264" width="1" height="1"><img src="/images/void.gif" width="1" height="1" vspace="0" hspace="0" border="0"/></td>
-</tr>
-<tr>
-<td bgcolor="#023264" width="1"><img src="/images/void.gif" width="1" height="1" vspace="0" hspace="0" border="0"/></td>
-<td bgcolor="#ffffff"><pre>git checkout BUGID</pre></td>
-<td bgcolor="#023264" width="1"><img src="/images/void.gif" width="1" height="1" vspace="0" hspace="0" border="0"/></td>
-</tr>
-<tr>
-<td bgcolor="#023264" width="1" height="1"><img src="/images/void.gif" width="1" height="1" vspace="0" hspace="0" border="0"/></td>
-<td bgcolor="#023264" height="1"><img src="/images/void.gif" width="1" height="1" vspace="0" hspace="0" border="0"/></td>
-<td bgcolor="#023264" width="1" height="1"><img src="/images/void.gif" width="1" height="1" vspace="0" hspace="0" border="0"/></td>
-</tr>
-</table>
-</div>
-</li>
-    <li>commit your fix there : <div align="left">
+    <li>Commit your fix there: <div align="left">
 <table cellspacing="4" cellpadding="0" border="0">
 <tr>
 <td bgcolor="#023264" width="1" height="1"><img src="/images/void.gif" width="1" height="1" vspace="0" hspace="0" border="0"/></td>
@@ -263,7 +301,7 @@ Check that patch does not break JUnit tests by running:
 </div>
 </li>
     <li>Please avoid creating merge commits in the PR. We embrace small changes, and merge commits are harder to review</li>
-    <li>Add JMeter repository as upstream : <div align="left">
+    <li>Push it: <div align="left">
 <table cellspacing="4" cellpadding="0" border="0">
 <tr>
 <td bgcolor="#023264" width="1" height="1"><img src="/images/void.gif" width="1" height="1" vspace="0" hspace="0" border="0"/></td>
@@ -272,7 +310,7 @@ Check that patch does not break JUnit tests by running:
 </tr>
 <tr>
 <td bgcolor="#023264" width="1"><img src="/images/void.gif" width="1" height="1" vspace="0" hspace="0" border="0"/></td>
-<td bgcolor="#ffffff"><pre>git remote add upstream http://www.github.com/apache/jmeter</pre></td>
+<td bgcolor="#ffffff"><pre>git push origin gh123-thread-group-typo</pre></td>
 <td bgcolor="#023264" width="1"><img src="/images/void.gif" width="1" height="1" vspace="0" hspace="0" border="0"/></td>
 </tr>
 <tr>
@@ -283,50 +321,10 @@ Check that patch does not break JUnit tests by running:
 </table>
 </div>
 </li>
-    <li>push it : <div align="left">
-<table cellspacing="4" cellpadding="0" border="0">
-<tr>
-<td bgcolor="#023264" width="1" height="1"><img src="/images/void.gif" width="1" height="1" vspace="0" hspace="0" border="0"/></td>
-<td bgcolor="#023264" height="1"><img src="/images/void.gif" width="1" height="1" vspace="0" hspace="0" border="0"/></td>
-<td bgcolor="#023264" width="1" height="1"><img src="/images/void.gif" width="1" height="1" vspace="0" hspace="0" border="0"/></td>
-</tr>
-<tr>
-<td bgcolor="#023264" width="1"><img src="/images/void.gif" width="1" height="1" vspace="0" hspace="0" border="0"/></td>
-<td bgcolor="#ffffff"><pre>git push origin BUGID</pre></td>
-<td bgcolor="#023264" width="1"><img src="/images/void.gif" width="1" height="1" vspace="0" hspace="0" border="0"/></td>
-</tr>
-<tr>
-<td bgcolor="#023264" width="1" height="1"><img src="/images/void.gif" width="1" height="1" vspace="0" hspace="0" border="0"/></td>
-<td bgcolor="#023264" height="1"><img src="/images/void.gif" width="1" height="1" vspace="0" hspace="0" border="0"/></td>
-<td bgcolor="#023264" width="1" height="1"><img src="/images/void.gif" width="1" height="1" vspace="0" hspace="0" border="0"/></td>
-</tr>
-</table>
-</div>
-</li>
-    <li>Create a PR and link it in the bugzilla issue</li>
-    <li>Or create a diff and add as attachment to bugzilla issue <div align="left">
-<table cellspacing="4" cellpadding="0" border="0">
-<tr>
-<td bgcolor="#023264" width="1" height="1"><img src="/images/void.gif" width="1" height="1" vspace="0" hspace="0" border="0"/></td>
-<td bgcolor="#023264" height="1"><img src="/images/void.gif" width="1" height="1" vspace="0" hspace="0" border="0"/></td>
-<td bgcolor="#023264" width="1" height="1"><img src="/images/void.gif" width="1" height="1" vspace="0" hspace="0" border="0"/></td>
-</tr>
-<tr>
-<td bgcolor="#023264" width="1"><img src="/images/void.gif" width="1" height="1" vspace="0" hspace="0" border="0"/></td>
-<td bgcolor="#ffffff"><pre>git diff &gt; BUGID.patch</pre></td>
-<td bgcolor="#023264" width="1"><img src="/images/void.gif" width="1" height="1" vspace="0" hspace="0" border="0"/></td>
-</tr>
-<tr>
-<td bgcolor="#023264" width="1" height="1"><img src="/images/void.gif" width="1" height="1" vspace="0" hspace="0" border="0"/></td>
-<td bgcolor="#023264" height="1"><img src="/images/void.gif" width="1" height="1" vspace="0" hspace="0" border="0"/></td>
-<td bgcolor="#023264" width="1" height="1"><img src="/images/void.gif" width="1" height="1" vspace="0" hspace="0" border="0"/></td>
-</tr>
-</table>
-</div>
-</li>
+    <li>Create a <a href="https://docs.github.com/en/pull-requests/collaborating-with-pull-requests/proposing-changes-to-your-work-with-pull-requests/creating-a-pull-request">pull request</a></li>
 </ul><p>
 <table border="1" bgcolor="#bbbb00" width="50%" cellspacing="0" cellpadding="2">
-<tr><td>Different operation systems have different defaults for end-of-line markers.
+<tr><td>Different operating systems have different defaults for end-of-line markers.
   Typical configuration is CRLF for Windows and LF for macOS and GNU/Linux.<br>
 
   It is recommended to follow that configuration by appropriate settings of <tt class="code">core.autocrlf</tt>.
@@ -377,15 +375,14 @@ Check that patch does not break JUnit tests by running:
 </td></tr>
 </table>
 </p>
-<h3>Create a PR using Patch</h3><ul>
-    <li>Open a bugzilla issue, see <a target="_blank" href="issues.html">Issues page</a></li>
+<h3>Proposing a change with a patch</h3><p>If you cannot to create a pull request at GitHub, you might submit your changes as a unified diff patch on JMeter dev mailing list.</p><ul>
     <li>Checkout Apache JMeter source</li>
     <li>Code your fix</li>
     <li>Create your patch by Right clicking on Eclipse project and select
          <span class="menuchoice">
  <span class="guimenuitem">Team</span>&nbsp;&rarr;&nbsp;<span class="guimenuitem">Create Patch …</span>  </span>
 </li>
-    <li>Attach your patch to the bugzilla issue</li>
+    <li>Attach your patch to email message on JMeter dev list</li>
 </ul></blockquote>
 </p>
 </td></tr>
@@ -437,7 +434,7 @@ You may want to also download the source so it can be used by the IDE.
 <tr>
 <td align="center">
 <font color="#525D76" size="-1"><em>
-Copyright &copy; 1999-2022, Apache Software Foundation
+Copyright &copy; 1999-2023, Apache Software Foundation
 </em></font>
 </td>
 </tr>
@@ -455,6 +452,8 @@ trademarks of the Apache Software Foundation.
 </body>
 </html>
 <!-- end the processing -->
+
+
 
 
 

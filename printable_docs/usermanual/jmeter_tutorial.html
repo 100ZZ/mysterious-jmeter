@@ -121,6 +121,7 @@ The folders inside of <tt class="code">apache-jmeter</tt>
   <dt><tt class="code">lib/ext</tt></dt><dd>contains the core jar files for JMeter and the protocols</dd>
   <dt><tt class="code">src</tt></dt><dd>contains subdirectory for each protocol and component</dd>
   <dt><tt class="code">src/*/test</tt></dt><dd>unit test related directory</dd>
+  <dt><tt class="code">src/testFixtures</tt></dt><dd>Directory that contains test-related code that might be reused in other modules</dd>
   <dt><tt class="code">xdocs</tt></dt><dd>XML files for documentation. JMeter generates its documentation from XML.</dd>
 </dl><p>
 As the tutorial progresses, an explanation of the subdirectories will be provided. For now, lets
@@ -180,7 +181,68 @@ write.
 <table border="0" cellspacing="0" cellpadding="2" width="100%">
 <tr><td bgcolor="#828DA6">
 <font color="#ffffff" face="arial,helvetica,sanserif">
-<a name="testelement-contract"><strong>29.2 JMeter Gui – TestElement Contract</strong></a>
+<a name="service-lookup"><strong>29.2 JMeter Gui – Service lookup</strong></a>
+</font>
+</td></tr>
+<tr><td>
+<blockquote>
+<p>
+      JMeter uses classpath scanning to detect plugins (e.g. functions, components, views). However, classpath scanning
+      is expensive,
+      so JMeter also provides a service lookup mechanism to allow plugins to be found without scanning the classpath.
+      That is if a plugin registers a Java service with <tt class="code">META-INF/services</tt>, then JMeter won't need to scan
+      the classpath to find it.
+    </p><p>
+      Some of the existing features already use the new service lookup mechanism, but it is not yet used for all
+      features.
+      The interfaces that are supported for service loading are marked with
+      <tt class="code">org.apache.jorphan.reflect.JMeterService</tt>
+      annotation.
+    </p><p>
+      Implementing a service the same as regular interface implementation, except you need to register the service
+      in a <tt class="code">META-INF/services/fully.qualified.interface.name</tt>.
+      For instance you could use <tt class="code">@AutoService</tt> to generate the file automatically at the build time.
+      Here's how <tt class="code">__counter</tt> function is declared in JMeter itself:
+<div align="left">
+<table cellspacing="4" cellpadding="0" border="0">
+<tr>
+<td bgcolor="#023264" width="1" height="1"><img src="/images/void.gif" width="1" height="1" vspace="0" hspace="0" border="0"/></td>
+<td bgcolor="#023264" height="1"><img src="/images/void.gif" width="1" height="1" vspace="0" hspace="0" border="0"/></td>
+<td bgcolor="#023264" width="1" height="1"><img src="/images/void.gif" width="1" height="1" vspace="0" hspace="0" border="0"/></td>
+</tr>
+<tr>
+<td bgcolor="#023264" width="1"><img src="/images/void.gif" width="1" height="1" vspace="0" hspace="0" border="0"/></td>
+<td bgcolor="#ffffff"><pre>
+import com.google.auto.service.AutoService;
+
+@AutoService(Function.class)
+public class IterationCounter extends AbstractFunction implements ThreadListener {
+</pre></td>
+<td bgcolor="#023264" width="1"><img src="/images/void.gif" width="1" height="1" vspace="0" hspace="0" border="0"/></td>
+</tr>
+<tr>
+<td bgcolor="#023264" width="1" height="1"><img src="/images/void.gif" width="1" height="1" vspace="0" hspace="0" border="0"/></td>
+<td bgcolor="#023264" height="1"><img src="/images/void.gif" width="1" height="1" vspace="0" hspace="0" border="0"/></td>
+<td bgcolor="#023264" width="1" height="1"><img src="/images/void.gif" width="1" height="1" vspace="0" hspace="0" border="0"/></td>
+</tr>
+</table>
+</div>
+
+    </p><p>
+      For backward compatibility reasons, JMeter would still try searching the implementations with classpath scanning,
+      so you don't have to use <tt class="code">META-INF/services</tt> for registering services. However, service lookup is much
+      faster, so exposing services would improve startup time, especially when there are many plugins.
+    </p><p>
+      As you add <tt class="code">META-INF/services</tt> to your plugins, you can add <tt class="code">JMeter-Skip-Class-Scanning: true</tt>
+      manifest attribute so JMeter knows there's no need to scan the jar as it provides all the plugins via services.
+    </p></blockquote>
+</td></tr>
+<tr><td><br></td></tr>
+</table>
+<table border="0" cellspacing="0" cellpadding="2" width="100%">
+<tr><td bgcolor="#828DA6">
+<font color="#ffffff" face="arial,helvetica,sanserif">
+<a name="testelement-contract"><strong>29.3 JMeter Gui – TestElement Contract</strong></a>
 </font>
 </td></tr>
 <tr><td>
@@ -219,6 +281,10 @@ component. The resource will have to be entered into JMeters <tt class="code">me
 (and possibly translations as well).</li>
     </ol>
   </li>
+  <li>Override <tt class="code">org.apache.jmeter.gui.JMeterGUIComponent.makeTestElement</tt> method so it returns
+  the appropriate <tt class="code">TestElement</tt>. JMeter will use <tt class="code">makeTestElement</tt> when user creates the element
+  from the UI. In most cases it should be just creating the test element like
+  <tt class="code">return new SetupThreadGroup()</tt>.</li>
   <li>Create your GUI. Whatever style you like, layout your GUI. Your class ultimately extends
     <tt class="code">JPanel</tt>, so your layout must be in your class's own <tt class="code">ContentPane</tt>.
     Do not hook up GUI elements to your <tt class="code">TestElement</tt> class via actions and events.
@@ -266,10 +332,15 @@ private void init() {
       </li>
     </ol>
   </li>
-  <li>Implement <tt class="code">public void configure(TestElement el)</tt>
+  <li>Then you need to wire UI elements with the properties of the new <tt class="code">TestElement</tt>. If you create
+  <tt class="code">TestElementSchema</tt> for your test element (see <tt class="code">ThreadGroupSchema</tt>), then you could use
+  automatic wiring with <tt class="code">PropertyEditorCollection</tt></li>
+  <li>If you do not use schema for wiring properties to UI control, or if you have non-trivial controls,
+    you might customize <tt class="code">TestElement</tt> properties to UI control mapping by overriding <tt class="code">public void configure(TestElement el)</tt>
     <ol>
       <li>Be sure to call <tt class="code">super.configure(e)</tt>. This will populate some of the data for you, like
-         the name of the element.</li>
+      the name of the element. Note: JMeter reuses UI elements when user changes the active element in test tree,
+      so you need to set all the text fields in <tt class="code">configure</tt> method to avoid displaying stale contents.</li>
       <li>Use this method to set data into your GUI elements. Example:
 <div align="left">
 <table cellspacing="4" cellpadding="0" border="0">
@@ -310,12 +381,14 @@ public void configure(TestElement el) {
 </div>
 
       </li>
-      <li>Implement <tt class="code">public void modifyTestElement(TestElement e)</tt>. This is where you
-         move the data from your GUI elements to the <tt class="code">TestElement</tt>. It is the logical reverse of the
-         previous method.
+      <li>If you do not use schema for wiring UI controls to <tt class="code">TestElement</tt> properties,
+         or if you want customized behavior, you might override <tt class="code">public void modifyTestElement(TestElement e)</tt>.
+         It is the logical reverse of <tt class="code">configure</tt> method.
          <ol>
-           <li>Call <tt class="code">super.configureTestElement(e)</tt>. This will take care of some default data for
+           <li>Call <tt class="code">super.modifyTestElement(e)</tt>. This will take care of some default data for
              you.</li>
+           <li>Note: in most cases, you want to treat &quot;empty field&quot; as &quot;absent property&quot;, so make sure to
+           remove the property if the input field is empty.</li>
            <li>Example:
 <div align="left">
 <table cellspacing="4" cellpadding="0" border="0">
@@ -328,7 +401,7 @@ public void configure(TestElement el) {
 <td bgcolor="#023264" width="1"><img src="/images/void.gif" width="1" height="1" vspace="0" hspace="0" border="0"/></td>
 <td bgcolor="#ffffff"><pre>
 public void modifyTestElement(TestElement e) {
-    super.configureTestElement(e);
+    super.modifyTestElement(e);
     e.setProperty(new BooleanProperty(
             RegexExtractor.USEHEADERS,
             useHeaders.isSelected()));
@@ -356,35 +429,9 @@ public void modifyTestElement(TestElement e) {
            </li>
          </ol>
        </li>
-       <li>Implement <tt class="code">public TestElement createTestElement()</tt>. This method should create a
-         new instance of your <tt class="code">TestElement</tt> class, and then pass it to the <tt class="code">modifyTestElement(TestElement)</tt>
-         method you made above
-<div align="left">
-<table cellspacing="4" cellpadding="0" border="0">
-<tr>
-<td bgcolor="#023264" width="1" height="1"><img src="/images/void.gif" width="1" height="1" vspace="0" hspace="0" border="0"/></td>
-<td bgcolor="#023264" height="1"><img src="/images/void.gif" width="1" height="1" vspace="0" hspace="0" border="0"/></td>
-<td bgcolor="#023264" width="1" height="1"><img src="/images/void.gif" width="1" height="1" vspace="0" hspace="0" border="0"/></td>
-</tr>
-<tr>
-<td bgcolor="#023264" width="1"><img src="/images/void.gif" width="1" height="1" vspace="0" hspace="0" border="0"/></td>
-<td bgcolor="#ffffff"><pre>
-public TestElement createTestElement() {
-    RegexExtractor extractor = new RegexExtractor();
-    modifyTestElement(extractor);
-    return extractor;
-}
-</pre></td>
-<td bgcolor="#023264" width="1"><img src="/images/void.gif" width="1" height="1" vspace="0" hspace="0" border="0"/></td>
-</tr>
-<tr>
-<td bgcolor="#023264" width="1" height="1"><img src="/images/void.gif" width="1" height="1" vspace="0" hspace="0" border="0"/></td>
-<td bgcolor="#023264" height="1"><img src="/images/void.gif" width="1" height="1" vspace="0" hspace="0" border="0"/></td>
-<td bgcolor="#023264" width="1" height="1"><img src="/images/void.gif" width="1" height="1" vspace="0" hspace="0" border="0"/></td>
-</tr>
-</table>
-</div>
-
+       <li>If your UI includes controls that do not map to <tt class="code">TestElement</tt> properties (sliders, tabs),
+         then you might want to reset them when user switches the controls. You can do that by overriding
+         <tt class="code">clearGui()</tt> method and resetting the controls there.
        </li>
     </ol>
   </li>
@@ -405,7 +452,7 @@ Writing Visualizers is somewhat of a special case, however.
 <table border="0" cellspacing="0" cellpadding="2" width="100%">
 <tr><td bgcolor="#828DA6">
 <font color="#ffffff" face="arial,helvetica,sanserif">
-<a name="visualizer"><strong>29.3 Writing a Visualizer</strong></a>
+<a name="visualizer"><strong>29.4 Writing a Visualizer</strong></a>
 </font>
 </td></tr>
 <tr><td>
@@ -747,7 +794,7 @@ added so that users can save a screen capture of any given visualizer.
 <table border="0" cellspacing="0" cellpadding="2" width="100%">
 <tr><td bgcolor="#828DA6">
 <font color="#ffffff" face="arial,helvetica,sanserif">
-<a name="graphlistener"><strong>29.4 GraphListener</strong></a>
+<a name="graphlistener"><strong>29.5 GraphListener</strong></a>
 </font>
 </td></tr>
 <tr><td>
@@ -807,7 +854,7 @@ implement the interface, please look at <tt class="code">GraphVisualizer</tt>.
 <table border="0" cellspacing="0" cellpadding="2" width="100%">
 <tr><td bgcolor="#828DA6">
 <font color="#ffffff" face="arial,helvetica,sanserif">
-<a name="custom-graphs"><strong>29.5 Writing Custom Graphs</strong></a>
+<a name="custom-graphs"><strong>29.6 Writing Custom Graphs</strong></a>
 </font>
 </td></tr>
 <tr><td>
@@ -1022,7 +1069,7 @@ and predictable.
 <table border="0" cellspacing="0" cellpadding="2" width="100%">
 <tr><td bgcolor="#828DA6">
 <font color="#ffffff" face="arial,helvetica,sanserif">
-<a name="testbean"><strong>29.6 Making a TestBean Plugin For JMeter</strong></a>
+<a name="testbean"><strong>29.7 Making a TestBean Plugin For JMeter</strong></a>
 </font>
 </td></tr>
 <tr><td>
@@ -1226,7 +1273,7 @@ p.setPropertyEditorClass(FileEditor.class);
 <table border="0" cellspacing="0" cellpadding="2" width="100%">
 <tr><td bgcolor="#828DA6">
 <font color="#ffffff" face="arial,helvetica,sanserif">
-<a name="building"><strong>29.6 Building JMeter</strong></a>
+<a name="building"><strong>29.8 Building JMeter</strong></a>
 </font>
 </td></tr>
 <tr><td>
@@ -1275,7 +1322,7 @@ Here are some example commands.
 <tr>
 <td>
 <font color="#525D76" size="-1"><em>
-Copyright &copy; 1999-2022, Apache Software Foundation
+Copyright &copy; 1999-2023, Apache Software Foundation
 </em></font>
 </td>
 <td align="right">
@@ -1298,6 +1345,8 @@ trademarks of the Apache Software Foundation.
 </body>
 </html>
 <!-- end the processing -->
+
+
 
 
 

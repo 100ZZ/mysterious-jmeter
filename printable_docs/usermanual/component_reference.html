@@ -11141,8 +11141,13 @@ Yes
                 HTTP Responses with statuses in the <tt class="code">4xx</tt> and <tt class="code">5xx</tt> ranges are normally
                 regarded as unsuccessful.
                 The &quot;<tt class="code">Ignore status</tt>&quot; checkbox can be used to set the status successful before performing further checks.
-                Note that this will have the effect of clearing any previous assertion failures,
-                so make sure that this is only set on the first assertion.
+                <p>
+<table border="1" bgcolor="#bbbb00" width="50%" cellspacing="0" cellpadding="2">
+<tr><td>Note that this will have the effect of clearing any previous assertion failures,
+                so make sure that this is only set on the first assertion.</td></tr>
+</table>
+</p>
+
         </td>
 <td>
 Yes
@@ -15334,40 +15339,83 @@ See <a href="get-started.html#classpath">JMeter's Classpath</a> and
        The users are generated according to the schedule.
     </p>
     <p>The load profile consists of a sequence of constant, increasing or decreasing load.
-       The following commands are available:
-        <ul>
-            <li><tt class="code">rate(&lt;number&gt;/sec)</tt> — configures target load rate.
+       The basic configuration is <tt class="code">rate(1/sec) random_arrivals(2 min) rate(3/sec)</tt> which means the load will increase linearly
+        from one request per second to three requests per second during a period of two-minutes.
+       If you omit rate at the end, then it will be set to the same value as that from the start. For example,
+        <tt class="code">rate(1/sec) random_arrivals(2 min)</tt> is exactly the same as <tt class="code">rate(1/sec) random_arrivals(2 min) rate(1/sec)</tt>.
+       That is why <tt class="code">rate(1/sec) random_arrivals(2 min) random_arrivals(3 min) rate(4/sec)</tt> is exactly the same as
+        <tt class="code">rate(1/sec) random_arrivals(2 min) rate(1/sec) random_arrivals(3 min) rate(4/sec)</tt>, so the load is one request per second during the first two minutes,
+        after which it increases linearly from one request per second to four requests per second during three minutes.
+    </p>
+    <p>Here are examples for using the schedule:
+        <dl>
+            <dt><tt class="code">rate(10/sec) random_arrivals(1 min) rate(10/sec)</tt></dt>
+            <dd>constant load rate of ten requests per second during one minute</dd>
+
+            <dt><tt class="code">rate(0) random_arrivals(1 min) rate(10/sec)</tt></dt>
+            <dd>linearly increase the load from zero requests per second to ten requests per second during one minute</dd>
+
+            <dt><tt class="code">rate(0) random_arrivals(1 min) rate(10/sec) random_arrivals(1 min) rate(10/sec) random_arrivals(1 min) rate(0)</tt></dt>
+            <dd>linearly increase the load from zero requests per second to ten requests per second during one minute, then hold the load during one minute,
+                then linearly decrease the load from ten requests per second to zero during one minute</dd>
+
+            <dt><tt class="code">rate(10) random_arrivals(1 min) rate(10/sec) random_arrivals(1 min) rate(10/sec) random_arrivals(1 min) rate(0)</tt></dt>
+            <dd>linearly increase the load from zero requests per second to ten requests per second during one minute, then hold the load during one minute,
+                then linearly decrease the load from ten requests per second to zero requests per second during one minute</dd>
+
+            <dt><tt class="code">rate(10) random_arrivals(1 min) pause(2 sec) random_arrivals(1 min)</tt></dt>
+            <dd>run with constant load of ten requests per second during one minute, then make two second pause, then resume the load of ten requests per second for one minute</dd>
+        </dl>
+    </p>
+    <p>The following commands are available:
+        <dl>
+            <dt><tt class="code">rate(&lt;number&gt;/sec)</tt></dt>
+            <dd>configures target load rate.
                 The following time units are supported: <tt class="code">ms</tt>, <tt class="code">sec</tt>, <tt class="code">min</tt>, <tt class="code">hour</tt>, <tt class="code">day</tt>.
-                You can omit time unit in case the rate is 0: <tt class="code">rate(0)</tt></li>
-            <li><tt class="code">random_arrivals(&lt;number&gt; sec)</tt> — configures random arrivals schedule with the given duration.
+                You can omit time unit in case the rate is 0: <tt class="code">rate(0)</tt>
+            </dd>
+
+            <dt><tt class="code">random_arrivals(&lt;number&gt; sec)</tt></dt>
+            <dd>configures random arrivals schedule with the given duration.
                 The starting load rate is configured before <tt class="code">random_arrivals</tt>, and the finish load rate is configured after <tt class="code">random_arrivals</tt>.
-                For example, 10 minute test from 5/sec at the beginning till 15/sec at the end could be configured as <tt class="code">rate(5/sec) random_arrivals(10 min) rate(15/sec)</tt>.
+                For example, 10 minute test from five requests per second at the beginning to fifteen request per second at the end could be configured as <tt class="code">rate(5/sec) random_arrivals(10 min) rate(15/sec)</tt>.
                 <br>
-The implicit rate at the beginning of the test is 0. If the finish rate is not provided (or if several <tt class="code">random_arrivals</tt> steps go one after another),
+The implicit rate at the beginning of the test is <tt class="code">0</tt>. If the finish rate is not provided (or if several <tt class="code">random_arrivals</tt> steps go one after another),
                 then the load is constant. For instance, <tt class="code">rate(3/sec) random_arrivals(1 min) random_arrivals(2 min) rate(6/sec)</tt> configures
-                constant rate of 3/sec for the first 1 minute, and then the load increases from 3/sec till 6/sec during the next 2 minutes.
+                constant rate of three requests per second for the first minute, and then the load increases from three requests per second to six requests per second during the next two minutes.
                 The time units are the same as in <tt class="code">rate</tt>.
-            </li>
-            <li><tt class="code">even_arrivals(&lt;number&gt; sec)</tt> — configures even arrivals (TODO: not implemented yet). For instance, if the desired load
-                is 1/sec, then <tt class="code">random_arrivals</tt> would lauch samples with exactly 1 second intervals.</li>
-            <li><tt class="code">pause(&lt;number&gt; sec)</tt> — configures a pause for the given duration.
+            </dd>
+
+            <dt><tt class="code">even_arrivals(&lt;number&gt; sec)</tt></dt>
+            <dd>configures even arrivals (TODO: not implemented yet). For instance, if the desired load
+                is one request per second, then <tt class="code">random_arrivals</tt> would lauch samples with exactly one second intervals.
+            </dd>
+
+            <dt><tt class="code">pause(&lt;number&gt; sec)</tt></dt>
+            <dd>configures a pause for the given duration.
                 The rate is restored after the pause, so <tt class="code">rate(2/sec) random_arrivals(5 sec) pause(5 sec) random_arrivals(5 sec)</tt>
-                generates random arrivals with 2/sec rate, then a pause for 5 seconds (no new arrivals), then 5 more seconds with 2/sec rate.<br>
+                generates random arrivals with two requests per second rate, then a pause for five seconds (no new arrivals), then five more seconds with two requests per second rate.<br>
 
                 Note: <tt class="code">pause</tt> duration is always honoured, even if all the scenarios are complete, and no new ones will be scheduled.
                 For instance, if you use <tt class="code">rate(1/sec) random_arrivals(1 min) pause(1 hour)</tt>, the thread group would
-                always last for 61 minutes no matter how much time do individual scenarios take.
-            </li>
-            <li><tt class="code">/* Comments */</tt> can be used to clarify the schedule or temporary disable some steps. Comments
-                cannot be nested.</li>
-            <li><tt class="code">// line comments</tt> can be used to clarify the schedule or temporary disable some steps.
-                Line comment lasts till the end of the line.</li>
-        </ul>
+                always last for sixty-one minutes no matter how much time do individual scenarios take.
+            </dd>
+
+            <dt><tt class="code">/* Comments */</tt></dt>
+            <dd>can be used to clarify the schedule or temporary disable some steps. Comments
+                cannot be nested.
+            </dd>
+
+            <dt><tt class="code">// line comments</tt></dt>
+            <dd>can be used to clarify the schedule or temporary disable some steps.
+                Line comment lasts till the end of the line.
+            </dd>
+        </dl>
     </p>
     <p>The thread groups terminates threads as soon as the schedule ends. In other words, the threads are interrupted
         after all <tt class="code">arrivals</tt> and <tt class="code">pause</tt> intervals.
         If you want to let the threads complete safely, consider adding <tt class="code">pause(5 min)</tt> at the end of the schedule.
-        That will add 5 minutes for the threads to continue.
+        That will add five minutes for the threads to continue.
     </p>
     <p>There are no special functions for generating the load profile in a loop, however, the default JMeter templating functions
         can be helpful for generating the schedule.
@@ -16004,7 +16052,7 @@ No
 </tr>
 <tr>
 <td>Naming format</td>
-<td>If <tt class="code">Use format string</tt> is selected as naming scheme, a freestyle format can be given. Placeholders for the transaction name, path and counter can be given by <tt class="code">#{name}</tt>, <tt class="code">#{path}</tt> and <tt class="code">#{counter}</tt>. A simple format could be &quot;<tt class="code">#{name}-#{counter}</tt>&quot;, which would be equivalent to the numbered default naming scheme. For more complex formatting Java formatting for MessageFormat can be used, as in &quot;<tt class="code">#{counter,number,000}: #{name}-#{path}</tt>&quot;, which would print the counter filled with up to three zeroes. Default is an empty string.</td>
+<td>If <tt class="code">Use format string</tt> is selected as naming scheme, a freestyle format can be given. Placeholders for the transaction name, scheme, host, port, path and counter can be given by <tt class="code">#{name}</tt>, <tt class="code">#{scheme}</tt>, <tt class="code">#{host}</tt>, <tt class="code">#{port}</tt>, <tt class="code">#{path}</tt>, <tt class="code">#{url}</tt> and <tt class="code">#{counter}</tt>. A simple format could be &quot;<tt class="code">#{name}-#{counter}</tt>&quot;, which would be equivalent to the numbered default naming scheme. For more complex formatting Java formatting for MessageFormat can be used, as in &quot;<tt class="code">#{counter,number,000}: #{name}-#{path}</tt>&quot;, which would print the counter filled with up to three zeroes. Note that scheme is called <tt class="code">protocol</tt> in the sampler GUI and host is called <tt class="code">domain</tt>. Default is an empty string.</td>
 <td>
 No
 </td>
@@ -16751,7 +16799,7 @@ If Test Plan is stopped, tearDown will not run even if option is checked.
 <tr>
 <td>
 <font color="#525D76" size="-1"><em>
-Copyright &copy; 1999-2022, Apache Software Foundation
+Copyright &copy; 1999-2023, Apache Software Foundation
 </em></font>
 </td>
 <td align="right">
@@ -16774,6 +16822,8 @@ trademarks of the Apache Software Foundation.
 </body>
 </html>
 <!-- end the processing -->
+
+
 
 
 
