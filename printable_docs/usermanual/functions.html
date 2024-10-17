@@ -3607,7 +3607,7 @@ No
 <tr>
 <td>Format</td>
 <td>
-        The format to be passed to <a href="https://docs.oracle.com/javase/8/docs/api/java/text/SimpleDateFormat.html">SimpleDateFormat</a>.
+        The format to be passed to <a href="https://docs.oracle.com/javase/8/docs/api/java/time/format/DateTimeFormatter.html">DateTimeFormatter</a>.
         The function supports various shorthand aliases, see below.
         If omitted, the function returns the current time in milliseconds since the epoch.
         </td>
@@ -3627,7 +3627,7 @@ No
 If the format matches &quot;<tt class="code">/ddd</tt>&quot; (where <tt class="code">ddd</tt> are decimal digits),
 then the function returns the current time in milliseconds divided by the value of <tt class="code">ddd</tt>.
 For example, &quot;<tt class="code">/1000</tt>&quot; returns the current time in seconds since the epoch.
-Otherwise, the current time is passed to SimpleDateFormat.
+Otherwise, the current time is passed to DateTimeFormatter.
 The following shorthand aliases are provided:
 </p><ul>
 <li><tt class="code">YMD</tt> = <tt class="code">yyyyMMdd</tt></li>
@@ -3694,7 +3694,17 @@ The following shorthand aliases are provided:
 </tr>
 </table>
 </div>
-  will return time in millis <tt class="code">1516540541624</tt></p></td></tr>
+  will return time in millis <tt class="code">1516540541624</tt></p><p>
+<table border="1" bgcolor="#bbbb00" width="50%" cellspacing="0" cellpadding="2">
+<tr><td>
+ The format to be passed to used to be <a href="https://docs.oracle.com/javase/8/docs/api/java/text/SimpleDateFormat.html">SimpleDateFormat</a>,
+ but that changed with JMeter 5.5 to <a href="https://docs.oracle.com/javase/8/docs/api/java/time/format/DateTimeFormatter.html">DateTimeFormatter</a>.
+ While they use mostly the same codes, they differ slightly. Most notable is probably the code <tt class="code">u</tt>, that meant
+ <em>day number of week</em> and is now interpreted as <em>year</em>.
+</td></tr>
+</table>
+</p>
+</td></tr>
 <tr><td><br></td></tr>
 </table>
 <hr>
@@ -5185,9 +5195,10 @@ Yes
 </table>
 </p>
 
+            If no mode is given, <tt class="code">UPPER</tt> is used as default.
         </td>
 <td>
-Yes
+No
 </td>
 </tr>
 <tr>
@@ -5409,7 +5420,7 @@ They are mainly intended for use in file names etc.
 <tr>
 <td>
 <font color="#525D76" size="-1"><em>
-Copyright &copy; 1999-2022, Apache Software Foundation
+Copyright &copy; 1999-2023, Apache Software Foundation
 </em></font>
 </td>
 <td align="right">
@@ -5432,6 +5443,8 @@ trademarks of the Apache Software Foundation.
 </body>
 </html>
 <!-- end the processing -->
+
+
 
 
 

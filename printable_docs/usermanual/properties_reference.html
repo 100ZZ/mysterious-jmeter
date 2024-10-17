@@ -3747,7 +3747,7 @@ No
 <tr>
 <td>backend_metrics_percentile_estimator</td>
 <td>
-    Specify the <a href="https://commons.apache.org/proper/commons-math/javadocs/api-3.5/org/apache/commons/math3/stat/descriptive/rank/Percentile.EstimationType.html">Percentile Estimation Type</a> to use.<br>
+    Specify the <a href="https://commons.apache.org/proper/commons-math/javadocs/api-3.6.1/org/apache/commons/math3/stat/descriptive/rank/Percentile.EstimationType.html">Percentile Estimation Type</a> to use.<br>
 
     To make the values from the dashboard compatible with the Aggregate Report, use the value <tt class="code">R_3</tt>.<br>
 
@@ -4236,6 +4236,26 @@ No
 </td>
 </tr>
 <tr>
+<td>function.cache.per.iteration</td>
+<td>
+    <p>Cache function execution during test execution.</p>
+    <p>By default, JMeter caches function properties during a test iteration, however,
+    it might cause unexpected results when a component is shared across threads and the expression depends on
+    the thread variables.</p>
+    <p>
+<table border="1" bgcolor="#bbbb00" width="50%" cellspacing="0" cellpadding="2">
+<tr><td>The property will likely be removed in an upcoming version, so if you need it consider raising
+     an issue with your use-case.</td></tr>
+</table>
+</p>
+
+    Defaults to: <tt class="code">false</tt>
+</td>
+<td>
+No
+</td>
+</tr>
+<tr>
 <td>propertyEditorSearchPath</td>
 <td>
     TestBeanGui<br>
@@ -4386,7 +4406,7 @@ No
 <td>
     The encoding to be used if none is provided.<br>
 
-    Defaults to: <tt class="code">ISO-8859-1</tt>
+    Defaults to: <tt class="code">UTF-8</tt> (since 5.6.1)
 </td>
 <td>
 No
@@ -6335,7 +6355,7 @@ No
 <tr>
 <td>
 <font color="#525D76" size="-1"><em>
-Copyright &copy; 1999-2022, Apache Software Foundation
+Copyright &copy; 1999-2023, Apache Software Foundation
 </em></font>
 </td>
 <td align="right">
@@ -6358,6 +6378,8 @@ trademarks of the Apache Software Foundation.
 </body>
 </html>
 <!-- end the processing -->
+
+
 
 
 
