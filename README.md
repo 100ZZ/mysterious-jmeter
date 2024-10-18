@@ -47,7 +47,7 @@ https://github.com/user-attachments/assets/514c7ab6-08a6-4576-9af1-9dafe60a0589
 >- cd mysterious/docker
 >- sh init.sh amd64|arm64 (平台架构：x86传amd64，arm传arm64)
 >- cd mysterious
->- git clone https://github.com/100ZZ/mysterious-jmeter.git -b v5.5
+>- git clone https://github.com/100ZZ/mysterious-jmeter.git
 >- docker-compose up -d
 2. 访问平台
 >- 平台访问：http://xx.xx.xx.xx:1234
@@ -92,7 +92,7 @@ https://github.com/user-attachments/assets/514c7ab6-08a6-4576-9af1-9dafe60a0589
 >- cp docker/mysterious.jar /opt/mysterious/running/
 >- cp docker/service.sh /opt/mysterious/running/
 >- cd /opt/mysterious
->- git clone https://github.com/100ZZ/mysterious-jmeter.git -b v5.5
+>- git clone https://github.com/100ZZ/mysterious-jmeter.git
 >- sh /opt/mysterious/running/service.sh restart
 4. 访问平台
 >- 平台访问：http://xx.xx.xx.xx:1234
@@ -106,7 +106,7 @@ https://github.com/user-attachments/assets/514c7ab6-08a6-4576-9af1-9dafe60a0589
 如果需要分布式压测，找到和Master节点网络互通的Slave节点进行部署，最好是局域网，否则网络开销太大；无论Master节点是二进制还是Docker-Compose部署，Slave节点部署方式都如下
 >- mkdir /opt/mysterious
 >- cd /opt/mysterious
->- git clone https://github.com/100ZZ/mysterious-jmeter.git -b v5.5
+>- git clone https://github.com/100ZZ/mysterious-jmeter.git
 >- 如果之前有一些测试用例，可以页面节点管理，先点击一下节点同步，会将Master节点用例数据都同步到Slave节点，然后启用Slave节点即可
 >- 只要有Slave节点启用，压测都会是分布式压测，如果全都禁用，压测就只是Master单节点压测
 >- 具体Slave节点的目录结构都是可配置的，具体可以参考配置管理页面
