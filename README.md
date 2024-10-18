@@ -1,5 +1,5 @@
 # Mysterious
-分布式压测平台，前端Vue3+TypeScript，后端SpringBoot-2.3.12，压测引擎JMeter-5.6.3，支持JMeter的分布式压测，管理，执行，报告，日志等。因为设计，开发，测试都是自己，一些功能优化需求也是根据自己的使用来改进，目前主要优先考虑正确性和实用性，未来通过大模型生成JMX脚本也在考虑当中。
+分布式压测平台，前端Vue3+TypeScript，后端SpringBoot-2.3.12，压测引擎JMeter-5.5，支持JMeter的分布式压测，管理，执行，报告，日志等。因为设计，开发，测试都是自己，一些功能优化需求也是根据自己的使用来改进，目前主要优先考虑正确性和实用性，未来通过大模型生成JMX脚本也在考虑当中。
 
 https://github.com/user-attachments/assets/514c7ab6-08a6-4576-9af1-9dafe60a0589
 
@@ -29,7 +29,7 @@ https://github.com/user-attachments/assets/514c7ab6-08a6-4576-9af1-9dafe60a0589
 - 用例详情
   - 本地上传：上传本地JMX，CSV，JAR，平台处理依赖，本地只要能运行，平台命令行直接执行，日志，报告
   - 在线生成：主要是JMX脚本，完成一些简单的脚本进行在线编写，毕竟JMeter各种插件众多，不可能都兼容
-  - 智能生成：后续考虑结合AI大模型，提供可视化prompt提示词输入框，按要求生成JMX脚本
+  - 智能生成：后续考虑结合AI大模型，提供可视化prompt提示词输入，按要求生成JMX脚本
 - 压测模式
   - 如果是单节点压测，只需要在一个Master节点上安装部署平台和Jmeter工具包，通过平台来调用Jmeter来执行压测用例，并返回压测结果
   - 如果是分布式压测，除了Master节点安装部署平台和Jmeter工具包外，还要在Slave节点上部署Jmeter工具包，启动jmeter-server服务
